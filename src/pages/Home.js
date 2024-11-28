@@ -21,8 +21,7 @@ const Home = () => {
       <Banner />
       <AboutUsOne />
       <AboutUsTwo />
-      <TestimonialArea />
-      <section className="course-area">
+      <section className="course-area" id="tailored">
         <div className="container-fluid container-custom-1 p-0">
           <div className="course-wrap pt-120 pb-90">
             <div className="container">
@@ -120,6 +119,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <TestimonialArea />
       <CounterArea />
       {/* <EventArea /> */}
       {/* <TopCourse /> */}

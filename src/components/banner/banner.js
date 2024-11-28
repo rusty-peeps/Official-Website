@@ -39,18 +39,30 @@ const Banner = () => {
                     burger meal.
                   </p>
                   <div className="h10_banner-content-btn mb-60">
-                    <Link
-                      to="#"
+                    <a
+                      href="#tailored"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document
+                          .getElementById("tailored")
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }}
                       className="theme-btn theme-btn-10 theme-btn-10-white">
                       Tailored Sessions
                       <i className="fa-light fa-arrow-right"></i>
-                    </Link>
-                    <Link
-                      to="#"
+                    </a>
+                    <a
+                      href="#tailored"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document
+                          .getElementById("tailored")
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }}
                       className="theme-btn theme-btn-10 theme-btn-10-transparent">
                       Weekend Workshops
                       <i className="fa-light fa-arrow-right"></i>
-                    </Link>
+                    </a>
                   </div>
                   <div className="h10_banner-bottom-info">
                     <span>
@@ -60,7 +72,8 @@ const Banner = () => {
                       <i className="fa-light fa-users"></i>Support After Class
                     </span>
                     <span>
-                      <i className="fa-light fa-file-lines"></i>Certificate of Workshops
+                      <i className="fa-light fa-file-lines"></i>Certificate of
+                      Workshops
                     </span>
                   </div>
                 </div>
