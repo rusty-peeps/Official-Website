@@ -16,55 +16,17 @@ const BlogSlider = () => {
               <span className="section-subtitle">Our Blogs</span>
               <h2 className="section-title mb-0">Have a Look on Our News</h2>
             </div>
+            <div className="col-xl-4 col-lg-4 col-md-4">
+            
+            </div>
           </div>
           <div className="col-xl-4 col-lg-4 col-md-4">
-            <div className="h8_blog-navigation mb-30">
-              <div className="h8_blog-prev swiper-button-prev">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M13 7H1"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M7 1L1 7L7 13"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <div className="h8_blog-next swiper-button-next">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M1 7H13"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M7 1L13 7L7 13"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+            <div className="h8_blog-navigation mb-30" style={{paddingRight:"50px",paddingTop:"30px"}}>
+            <div className="h2_about-button">
+              <a href="https://rustypeeps.blog/" className="theme-btn theme-btn-medium">
+                View All Blogs
+              </a>
+            </div>
             </div>
           </div>
         </div>

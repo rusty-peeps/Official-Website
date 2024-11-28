@@ -121,9 +121,9 @@ const Home = () => {
         </div>
       </section>
       <CounterArea />
-      <EventArea />
-      <TopCourse />
-      <BrandSlider />
+      {/* <EventArea /> */}
+      {/* <TopCourse /> */}
+      {/* <BrandSlider /> */}
       <BlogSlider />
       <NewsLetter />
       <Footer />
