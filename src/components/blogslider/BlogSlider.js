@@ -14,7 +14,7 @@ const BlogSlider = () => {
           <div className="col-xl-8 col-lg-8 col-md-8">
             <div className="section-area-8 mb-20">
               <span className="section-subtitle">Our Blogs</span>
-              <h2 className="section-title mb-0">Have a Look on Our News</h2>
+              <h2 className="section-title mb-0">Have a Look on Our Blogs</h2>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4">
             
@@ -24,7 +24,7 @@ const BlogSlider = () => {
             <div className="h8_blog-navigation mb-30" style={{paddingRight:"50px",paddingTop:"30px"}}>
             <div className="h2_about-button">
               <a href="https://rustypeeps.blog/" className="theme-btn theme-btn-medium">
-                View All Blogs
+                View All
               </a>
             </div>
             </div>
@@ -55,7 +55,7 @@ const BlogSlider = () => {
               <SwiperSlide key={blog.id}>
                 <div className="h8_blog-item">
                   <div className="h8_blog-item-img w_img">
-                    <Link to={blog.link}>
+                    <Link to={blog.link} target="_blank">
                       <img src={blog.image} alt="" />
                     </Link>
                   </div>
@@ -64,7 +64,7 @@ const BlogSlider = () => {
                       <Link to={blog.link}>{blog.title}</Link>
                     </h4>
                     <p>{blog.description}</p>
-                    <Link to={blog.link} className="h8_blog-item-content-btn">
+                    <Link to={blog.link} className="h8_blog-item-content-btn" target="_blank">
                       Explore More <i className="fa-light fa-arrow-right"></i>
                     </Link>
                   </div>
