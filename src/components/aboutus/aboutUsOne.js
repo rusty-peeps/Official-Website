@@ -68,10 +68,8 @@ const AboutUsOne = () => {
                 </span>
               </h2>
               <p className="section-text">
-                Maecenas Felis Tellus, dictum sed fermentum vel, various
-                condiment dolour. Donec aliquot, denim ut auctor molestee, era
-                elite pharetra masa, at impediment eros qualm sed libero. Sed
-                arco lorem, rut rum.
+              Our instructors are passionate mentors with extensive experience in Rust programming and education. They are committed to providing hands-on learning and personalized support to help students master complex concepts with ease.
+              By cultivating an engaging and practical learning environment, our educators ensure that every student builds a strong foundation and gains the confidence to tackle real-world challenges in Rust development.
               </p>
             </div>
             <div className="h2_about-button">
