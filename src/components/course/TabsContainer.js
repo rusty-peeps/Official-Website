@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TabPane from './TabPane';
 
 const TabsContainer = () => {
-  const [activeTab, setActiveTab] = useState('pills-home'); 
+  const [activeTab, setActiveTab] = useState('pills-profile'); 
 
   const tabs = [
     { id: 'pills-home', label: 'Home' },
@@ -19,7 +19,7 @@ const TabsContainer = () => {
             // key={tab.id}
             // id={tab.id}
             // label={tab.label}
-            // isActive={activeTab === tab.id}
+            isActive={activeTab === "pills-profile"}
           />
         {/* {tabs.map((tab) => (
           <TabPane
