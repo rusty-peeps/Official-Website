@@ -82,19 +82,19 @@ function Contact() {
                       <span>
                         <i class="fa-thin fa-location-dot"></i>Address
                       </span>
-                      <p>Hilton Conference Centre</p>
+                      <p>Bhubaneswar, Odisha, India</p>
                     </div>
                     <div class="contact-info-item">
                       <span>
                         <i class="fa-thin fa-mobile-notch"></i>Phone
                       </span>
-                      <a href="tel:+123548645850">+123 548 6458 50</a>
+                      <a href="tel:+123548645850">+91 6370 151 545</a>
                     </div>
                     <div class="contact-info-item">
                       <span>
                         <i class="fa-thin fa-envelope"></i>Email
                       </span>
-                      <a href="mailto:example@gmail.com">Example@gmail.com</a>
+                      <a href="mailto:example@gmail.com">info@rustypeeps.school</a>
                     </div>
                     <div class="contact-social">
                       <span>Social Media</span>
