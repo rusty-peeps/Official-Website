@@ -6,9 +6,9 @@ function NewsLetter() {
           <div className="row align-items-center">
             <div className="col-xl-6 col-lg-6">
               <div className="cta-content mb-30 mb-lg-0">
-                <span className="cta-subtitle">Download App</span>
+                <span className="cta-subtitle">Sign Up for Newsletter!</span>
                 <h2 className="cta-title">
-                  Are you Ready to Start your Online Course?
+                  Are you Ready to Conquer Rust!?
                 </h2>
               </div>
             </div>
