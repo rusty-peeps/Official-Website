@@ -10,5 +10,23 @@
     "element": "Home",
     "title": "Home",
     "requiresAuth": false
+  },
+  {
+    "path": "/about",
+    "element": "AboutUS",
+    "title": "About US",
+    "requiresAuth": false
+  },
+  {
+    "path": "/contact",
+    "element": "Contact",
+    "title": "Contact",
+    "requiresAuth": false
+  },
+  {
+    "path": "/carrertraining",
+    "element": "CarrerTraining",
+    "title": "Carrer Training",
+    "requiresAuth": false
   }
 ]
