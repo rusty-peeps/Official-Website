@@ -15,7 +15,7 @@ const AboutUsOne = () => {
             <div className="h2_about-img mb-50">
               <div className="h2_about-inner-img">
                 <img
-                  src="assets/img/about/2/1.jpg"
+                  src="assets/img/about/2/kb.png"
                   alt=""
                   className="h2_inner-img"
                 />
@@ -26,7 +26,7 @@ const AboutUsOne = () => {
                 />
               </div>
               <div className="h2_about-inner-img2">
-                <img src="assets/img/about/2/2.jpg" alt="" />
+                <img src="assets/img/about/2/priest.png" alt="" />
                 <div className="h2_about-img-button">
                   {/* <a href="https://www.youtube.com/watch?v=dMlASgogxo4" className="popup-video" />
                     <i className="fa-solid fa-play"></i>

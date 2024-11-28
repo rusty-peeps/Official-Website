@@ -9668,9 +9668,11 @@ input:focus::placeholder, textarea:focus::placeholder {
   z-index: 1;
 }
 .h2_about-inner-img .h2_inner-img {
+  width: 50%;
   border-radius: 10px;
 }
 .h2_about-inner-img2 {
+  width: 50%;
   position: absolute;
   right: 50px;
   top: 120px;
