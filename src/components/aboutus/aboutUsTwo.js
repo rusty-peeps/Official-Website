@@ -43,7 +43,7 @@ const AboutUsTwo = () => {
               <img src="assets/img/about/1/1.png" alt="" />
               <div className="about-img-meta">
                 <span>
-                  <i className="fa-solid fa-star"></i>4.5 (3.4k Reviews)
+                  <i className="fa-solid fa-star"></i>4.5
                 </span>
                 <h5>Congratulations</h5>
               </div>

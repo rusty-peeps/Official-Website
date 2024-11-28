@@ -35,7 +35,7 @@ const AboutUsOne = () => {
               </div>
               <div className="h2_about-rating d-none d-sm-block">
                 <span>
-                  <i className="fa-solid fa-star"></i>4.5 (3.4k Reviews)
+                  <i className="fa-solid fa-star"></i>4.5
                 </span>
                 <h5>Congratulations</h5>
               </div>
