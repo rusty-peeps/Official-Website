@@ -54,14 +54,13 @@ const Banner = () => {
                   </div>
                   <div className="h10_banner-bottom-info">
                     <span>
-                      <i className="fa-brands fa-youtube"></i>4k Video Class
+                      <i className="fa-brands fa-youtube"></i>100% Live Sessions
                     </span>
                     <span>
-                      <i className="fa-light fa-users"></i>18k Total Student
+                      <i className="fa-light fa-users"></i>Support After Class
                     </span>
                     <span>
-                      <i className="fa-light fa-file-lines"></i>Complete
-                      Graduation
+                      <i className="fa-light fa-file-lines"></i>Certificate of Workshops
                     </span>
                   </div>
                 </div>

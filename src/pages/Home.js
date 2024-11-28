@@ -30,9 +30,9 @@ const Home = () => {
                 <div className="col-xl-12">
                   <div className="course-section-area text-center">
                     <div className="section-area section-area-top">
-                      <span className="section-subtitle">Featured Courses</span>
+                      <span className="section-subtitle">Tailored Courses</span>
                       <h2 className="section-title mb-20">
-                        Explore Featured Courses
+                        Explore Rust Topics to Learn, or Choose a Custom Topic!
                       </h2>
                     </div>
                   </div>
@@ -52,7 +52,7 @@ const Home = () => {
                           role="tab"
                           aria-controls="pills-home"
                           aria-selected="true">
-                          See All
+                          See All ✅
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
@@ -65,7 +65,7 @@ const Home = () => {
                           role="tab"
                           aria-controls="pills-profile"
                           aria-selected="false">
-                          Trending
+                          Most Booked 🔥
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
@@ -78,7 +78,7 @@ const Home = () => {
                           role="tab"
                           aria-controls="pills-contact"
                           aria-selected="false">
-                          Featured
+                          Beginner Friendly 🤗
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
@@ -91,7 +91,7 @@ const Home = () => {
                           role="tab"
                           aria-controls="pills-four"
                           aria-selected="false">
-                          Web Design
+                          Intermediate 🥸
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
@@ -104,7 +104,7 @@ const Home = () => {
                           role="tab"
                           aria-controls="pills-five"
                           aria-selected="false">
-                          Popular
+                          Complicated ☠️
                         </button>
                       </li>
                     </ul>
