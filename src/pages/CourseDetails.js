@@ -277,7 +277,7 @@ const CourseDetails = () => {
               <div className="col-md-2 col-12">
                 <div className="course_details-meta-right">
                   <Link className="theme-btn theme-btn-medium">
-                    Price: $ {course.price}
+                    Price: {course.price}
                   </Link>
                 </div>
               </div>
