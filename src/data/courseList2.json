@@ -1,0 +1,18 @@
+[
+  {
+    "id": "00003",
+    "image": "assets/img/course/error-handling.png",
+    "icon": "assets/img/course/1/v1.png",
+    "university": "Rustypeeps",
+    "title": "Effective Error Handling in Rust",
+    "category": "Beginner",
+    "oldPrice": "₹50",
+    "newPrice": "₹25",
+    "description": "Develop robust Rust applications by mastering error handling patterns.",
+    "features": [
+      "Result and Option enums",
+      "Error propagation using `?` operator",
+      "Custom error types and traits"
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "00002",
+    "image": "assets/img/course/error-handling.png",
+    "icon": "assets/img/course/1/v1.png",
+    "university": "Rustypeeps",
+    "title": "Rust Traits and Generics",
+    "category": "Beginner",
+    "oldPrice": "₹45",
+    "newPrice": "₹22",
+    "description": "Learn about Rust traits and generics to create reusable and type-safe code.",
+    "features": [
+      "Defining and implementing traits",
+      "Using generics in functions and structs",
+      "Associated types and trait bounds"
+    ]
+  },
+  {
+    "id": "00003",
+    "image": "assets/img/course/error-handling.png",
+    "icon": "assets/img/course/1/v1.png",
+    "university": "Rustypeeps",
+    "title": "Effective Error Handling in Rust",
+    "category": "Beginner",
+    "oldPrice": "₹50",
+    "newPrice": "₹25",
+    "description": "Develop robust Rust applications by mastering error handling patterns.",
+    "features": [
+      "Result and Option enums",
+      "Error propagation using `?` operator",
+      "Custom error types and traits"
+    ]
+  }
+]

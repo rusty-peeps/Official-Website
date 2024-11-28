@@ -1,0 +1,49 @@
+[
+  {
+    "id": "00001",
+    "image": "assets/img/course/error-handling.png",
+    "icon": "assets/img/course/1/v1.png",
+    "title": "Understanding Ownership in Rust",
+    "university": "Rustypeeps",
+    "category": "Beginner",
+    "oldPrice": "₹60",
+    "newPrice": "₹30",
+    "description": "Master the core concept of ownership, borrowing, and lifetimes in Rust programming.",
+    "features": [
+      "Ownership rules and memory management",
+      "Borrowing and references",
+      "Lifetimes and scope in detail"
+    ]
+  },
+  {
+    "id": "00006",
+    "image": "assets/img/course/error-handling.png",
+    "title": "Memory Safety in Rust",
+    "icon": "assets/img/course/1/v1.png",
+    "university": "Rustypeeps",
+    "category": "Beginner",
+    "oldPrice": "₹40",
+    "newPrice": "₹19",
+    "description": "Explore how Rust ensures memory safety without a garbage collector.",
+    "features": [
+      "Ownership and borrowing rules",
+      "Preventing null pointer dereferences",
+      "Safe concurrency with threads"
+    ]
+  }, {
+    "id": "00002",
+    "image": "assets/img/course/error-handling.png",
+    "icon": "assets/img/course/1/v1.png",
+    "university": "Rustypeeps",
+    "title": "Rust Traits and Generics",
+    "category": "Beginner",
+    "oldPrice": "₹45",
+    "newPrice": "₹22",
+    "description": "Learn about Rust traits and generics to create reusable and type-safe code.",
+    "features": [
+      "Defining and implementing traits",
+      "Using generics in functions and structs",
+      "Associated types and trait bounds"
+    ]
+  }
+]
