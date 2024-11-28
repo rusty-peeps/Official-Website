@@ -1,7 +1,7 @@
 [
   {
     "id": "00002",
-    "image": "assets/img/course/error-handling.png",
+    "image": "assets/img/course/traits.jpg",
     "icon": "assets/img/course/1/v1.png",
     "university": "Rustypeeps",
     "title": "Rust Traits and Generics",
