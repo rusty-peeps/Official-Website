@@ -19,7 +19,6 @@ const TabsContainer = () => {
             // key={tab.id}
             // id={tab.id}
             // label={tab.label}
-            isActive={activeTab === "pills-profile"}
           />
         {/* {tabs.map((tab) => (
           <TabPane
