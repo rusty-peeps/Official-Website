@@ -1,8 +1,8 @@
 import React from 'react';
 import CourseItem from './CourseItem';
-import courses from '../../data/courseList.json';
 
-const CoursesList = () => {
+
+const CoursesList = ({courses}) => {
   return (
     <div className="row">
       {courses.map((course, index) => (

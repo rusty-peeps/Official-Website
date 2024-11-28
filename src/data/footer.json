@@ -1,18 +1,10 @@
 {
   "usefulLinks": [
-    { "label": "About Eduan", "url": "#" },
-    { "label": "Contact", "url": "#" },
-    { "label": "Help Centre", "url": "#" },
-    { "label": "Refund", "url": "#" },
-    { "label": "Conditions", "url": "#" },
-    { "label": "Privacy Policy", "url": "#" }
+    { "label": "About", "url": "/about" },
+    { "label": "Contact", "url": "/contact" },
+    { "label": "Career Training", "url": "/carrertraining" }
   ],
   "categories": [
-    { "label": "Design Skills", "url": "#" },
-    { "label": "Development", "url": "#" },
-    { "label": "Marketing", "url": "#" },
-    { "label": "Finance & Accounting", "url": "#" },
-    { "label": "IT & Software", "url": "#" },
-    { "label": "Sales Marketing", "url": "#" }
+    { "label": "Blogs", "url": "https://rustypeeps.blog/" }
   ]
 }

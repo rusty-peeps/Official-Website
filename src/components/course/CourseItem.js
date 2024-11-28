@@ -61,7 +61,7 @@ const CourseItem = ({ course }) => {
           <div className="course-hover-content-btn">
             <div className="course-hover-cart-btn">
               <Link to={`/cart/add/${course.id}`} className="theme-btn course-btn"> {/* Add to cart link */}
-                Add to Cart
+               View Topic
               </Link>
             </div>
             <div className="course-hover-fav-btn">
