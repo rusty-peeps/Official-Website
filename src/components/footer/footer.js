@@ -85,7 +85,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-12">
               <div className="copyright-text">
-                <p>Copyright © 2023 All Rights Reserved by Eduan</p>
+                <p>Copyright © 2023 All Rights Reserved by Rustypeeps</p>
               </div>
             </div>
           </div>

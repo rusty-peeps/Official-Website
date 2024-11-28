@@ -24,7 +24,7 @@ const AboutUsTwo = () => {
                   <li>International course collection in 14 languages</li>
                   <li>Top certifications in tech and business</li>
                   <li>
-                    Access to 35,000+ top Eduan courses, anytime, anywhere
+                    Access to 35,000+ top Rustypeeps courses, anytime, anywhere
                   </li>
                 </ul>
               </div>

@@ -42,7 +42,7 @@ function Contact() {
                             </span>
                           </div>
                         </div>
-                       
+
                         <div class="col-12">
                           <div class="contact-form-input mb-50 contact-form-textarea">
                             <textarea
@@ -123,14 +123,15 @@ function Contact() {
           </div>
           <div class="contact-map">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d147120.012062842!2d13.706000467398074!3d51.075159941942076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1senveto!5e0!3m2!1sen!2sbd!4v1680961754336!5m2!1sen!2sbd"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119743.52297962956!2d85.82045315!3d20.300884149999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1732810138016!5m2!1sen!2sin"
+              allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </section>
 
-       <NewsLetter/>
-       <Footer/>
+        <NewsLetter />
+        <Footer />
       </main>
     </div>
   );

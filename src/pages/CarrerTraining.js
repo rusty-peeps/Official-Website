@@ -13,7 +13,7 @@ function CarrerTraining() {
             <div class="col-xl-6 col-lg-6">
               <div class="section-area-6 mb-35">
                 <h2 class="section-title mb-15">
-                  Explore the possibilities of a Eduan education
+                  Explore the possibilities of a Rustypeeps education
                 </h2>
               </div>
             </div>
