@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Sambit Singha",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/sambit.jpg",
+    "review": "Saw a lot of people say, 'Rust is tough, not possible to understand,' or 'Not everyone will adapt to Rust over existing languages.' But the approach of the instructors had only one thing in mind—make students fall in love with Rust. Simply the best teachers I've had for coding. Thank you!"
+  },
+  {
+    "name": "Yuvraj Biswal",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/yuvraj.jpeg",
+    "review": "It was a great experience learning Rust. The way it was taught, using relevant examples and practical approaches, made learning easy. The teaching process and focus on fundamentals really helped us understand the core of Rust as a programming language. I would love to have more sessions like this in the future."
+  },
+  {
+    "name": "Rajesh Jha",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/raj.jpeg",
+    "review": "The course was worth every penny. The daily quizzes and assignments were particularly helpful, enabling constant practice and applying concepts in practical scenarios. The projects provided a great way to move out of 'tutorial hell' and gain real-world experience."
+  },
+  {
+    "name": "Abhilash Praharaj",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/abhilash.jpeg",
+    "review": "I had an amazing experience during the Beginning with Rust internship. Over 29 days, I learned Rust from the basics to advanced concepts like ownership, borrowing, structs, and enums. The mix of theory and hands-on coding was perfect."
+  },
+  {
+    "name": "Jay Dev Das",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/jaydev.jpeg",
+    "review": "The Rust programming internship was an excellent learning experience. The instructors made everything easy to understand, teaching in a way that felt more like a friend helping before an exam rather than formal lectures. During the one-month program, I learned so much and enjoyed every session. I am thankful for the guidance and support throughout the course."
+  },
+  {
+    "name": "Manish Kumar Jha",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/manish.jpeg",
+    "review": "This course struck the ideal balance between understanding concepts and practical exposure. Even advanced topics were presented in a way that novices could grasp. I really appreciated the hands-on coding examples that highlighted key Rust features like ownership and safety. I highly recommend it to anyone starting their Rust journey—go ahead and build the future!"
+  },
+  {
+    "name": "Kironmay Mishra",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/kironmay.jpeg",
+    "review": "Taking this Rust course was a game-changer. The structured lessons and hands-on projects made concepts like ownership, lifetimes, and concurrency approachable. By the end of the course, I had built real-world projects like CLI apps and interpreters. Rust's safety and performance-focused design no longer feel intimidating."
+  },
+  {
+    "name": "Pratyush Kumar Nanda",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/pratyush.jpg",
+    "review": "It was the most educational summer course in Rust. The program covered core concepts like ownership, borrowing, and error handling, with a strong emphasis on hands-on projects. The mentorship provided was exceptional, guiding me throughout and helping me solidify my understanding. Projects like the CLI todo app and language interpreter bridged theory and real-world applications. This course not only improved my programming skills but also refined my problem-solving abilities in software development. I highly recommend it to anyone looking to master Rust and modern programming techniques."
+  },
+  {
+    "name": "Soumya Ranjan Mohanty",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/soumya.jpg",
+    "review": "The Beginning with Rust course was a fantastic experience. The instructors were excellent at teaching and always available to help in every possible way. They made learning enjoyable and effective."
+  },
+  {
+    "name": "Sidhartha Mohapatra",
+    "role": "Student @Beginning with Rust",
+    "image": "assets/img/testimonial/students/sidhartha.png",
+    "review": "It's hard to say exactly what made me fall in love with Rust, but it was an amazing experience. I came into the course with little programming knowledge but left with a solid understanding of core Rust concepts. What initially seemed like it might be a boring lecture turned out to be an exciting journey into programming with Rust, and I’m glad I took this opportunity to learn."
+  }
+]
