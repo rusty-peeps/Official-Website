@@ -15,16 +15,15 @@ const AboutUsTwo = () => {
                 </h2>
                 <p className="section-text">
                   Through a combination of lectures, readings, discussions,
-                  students will gain a solid foundation in educational
-                  psychology.
+                  students will gain a solid foundation in Rust language.
                 </p>
               </div>
               <div className="about-content-list">
                 <ul>
-                  <li>International course collection in 14 languages</li>
-                  <li>Top certifications in tech and business</li>
+                  {/* <li>International course collection in 14 languages</li> */}
+                  <li>Top certifications in rust and blockcain</li>
                   <li>
-                    Access to 35,000+ top Rustypeeps courses, anytime, anywhere
+                    Access to 5+ top Rustypeeps courses, anytime, anywhere
                   </li>
                 </ul>
               </div>
