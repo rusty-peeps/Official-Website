@@ -27,7 +27,7 @@ const Navbar = () => {
                   <ul>
                     {menuLinks.mainMenu.map((item, index) => (
                       <li key={index}>
-                        {item.url.startsWith("http") ? (
+                        {item.url && item.url.startsWith("http") ? (
                           <a
                             href={item.url}
                             target="_blank"
