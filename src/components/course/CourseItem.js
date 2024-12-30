@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const CourseItem = ({ course }) => {
   return (
-    <div className="col-xxl-3 col-lg-4 col-md-6">
-      <div className="course-item mb-30">
+    <div className="col-xxl-3 col-lg-4 col-md-6" style={{ marginBottom:"30px"}}>
+      <div className="course-item mb-30"  style={{ height: '100%'}}>
         <div className="course-img">
           <img src={course.image} alt={course.title} />
         </div>
@@ -62,11 +62,6 @@ const CourseItem = ({ course }) => {
             <div className="course-hover-cart-btn">
               <Link to={`/cart/add/${course.id}`} className="theme-btn course-btn"> {/* Add to cart link */}
                View Topic
-              </Link>
-            </div>
-            <div className="course-hover-fav-btn">
-              <Link to={`/favorites/add/${course.id}`}>
-                <i className="fa-thin fa-heart"></i>
               </Link>
             </div>
           </div>

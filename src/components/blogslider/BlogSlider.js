@@ -53,7 +53,7 @@ const BlogSlider = () => {
             }}>
             {blogs.map((blog) => (
               <SwiperSlide key={blog.id}>
-                <div className="h8_blog-item">
+                <div className="h8_blog-item" style={{ height: '100%'}}>
                   <div className="h8_blog-item-img w_img">
                     <Link to={blog.link} target="_blank">
                       <img src={blog.image} alt="" />
@@ -63,9 +63,12 @@ const BlogSlider = () => {
                     <h4 className="h8_blog-item-content-title">
                       <Link to={blog.link}>{blog.title}</Link>
                     </h4>
-                    <p>{blog.description}</p>
+                    <p>
+  {blog.description.split(' ').slice(0, 200).join(' ')}{/* Display only the first 200 words */}
+  {blog.description.split(' ').length > 200 && '...'} {/* Add "..." if text is truncated */}
+</p>
                     <Link to={blog.link} className="h8_blog-item-content-btn" target="_blank">
-                      Explore More <i className="fa-light fa-arrow-right"></i>
+                      Read More <i className="fa-light fa-arrow-right"></i>
                     </Link>
                   </div>
                 </div>

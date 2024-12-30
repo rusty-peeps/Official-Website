@@ -35,7 +35,19 @@ const Navbar = () => {
                             {item.label}
                           </a>
                         ) : (
-                          <Link to={item.url}>{item.label}</Link>
+                          <Link
+                            {...(item.url && { to: item.url })}
+                            {...(item.href && {
+                              href: `#${item.href}`,
+                              onClick: (e) => {
+                                e.preventDefault();
+                                document
+                                  .getElementById(item.href)
+                                  ?.scrollIntoView({ behavior: "smooth" });
+                              },
+                            })}>
+                            {item.label}
+                          </Link>
                         )}
                       </li>
                     ))}
@@ -77,7 +89,19 @@ const Navbar = () => {
           <ul>
             {menuLinks.sidebarMenu.map((item, index) => (
               <li key={index}>
-                <Link to={item.url}>{item.label}</Link>
+                <Link
+                  {...(item.url && { to: item.url })}
+                  {...(item.href && {
+                    href: `#${item.href}`,
+                    onClick: (e) => {
+                      e.preventDefault();
+                      document
+                        .getElementById(item.href)
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    },
+                  })}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AboutUsOne = () => {
   return (
-    <section className="h2_about-area pt-120 pb-70">
+    <section className="h2_about-area pt-120 pb-70" id='about'>
       <img
         src="assets/img/about/2/shape-5.png"
         alt=""

@@ -4,7 +4,7 @@ import CourseItem from './CourseItem';
 
 const CoursesList = ({courses}) => {
   return (
-    <div className="row">
+    <div className="row" >
       {courses.map((course, index) => (
         <CourseItem key={index} course={course} />
       ))}

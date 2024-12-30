@@ -5126,7 +5126,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 .h10_banner-content-title span img {
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -10px;
   width: calc(100% - 25px);
   display: inline-block;
   margin-left: 10px;
@@ -7042,11 +7042,16 @@ input:focus::placeholder, textarea:focus::placeholder {
   color: var(--clr-theme-primary);
 }
 .course-content-bottom {
-  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right:10px;
+  display: flex; 
   justify-content: space-between;
-  border-top: 1px solid rgba(30, 30, 30, 0.1);
-  padding: 15px 0 6px;
-  align-items: center;
+  align-items: center; 
+  padding: 15px 10px; 
+  background-color: #fff; 
+  border-top: 1px solid rgba(30, 30, 30, 0.1); 
 }
 .course-top-icon {
   width: 30px;
@@ -7132,6 +7137,12 @@ input:focus::placeholder, textarea:focus::placeholder {
 }
 .course-hover-content-list {
   margin-bottom: 30px;
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  max-height: 100px; /* Set the maximum height for the list */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+  scrollbar-width: thin; /* For Firefox - thin scrollbar */
+  scrollbar-color: #ccc transparent; /* Scrollbar color for Firefox */
 }
 .course-hover-content-list li {
   font-size: 14px;
@@ -7195,7 +7206,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   color: #fff;
 }
 .course-hover-cart-btn {
-  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 10px; 
+  left: 5px; 
+  width: calc(100% - 20px); 
 }
 .course-hover-content::before {
   position: absolute;
@@ -13275,6 +13289,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   font-weight: 400;
   line-height: 24px;
   margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Limit to 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .h8_blog-item-content-btn {
   color: #021936;
