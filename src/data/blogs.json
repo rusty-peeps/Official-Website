@@ -7,10 +7,10 @@
     "link": "https://rustypeeps.blog/the-why-rust-is-the-future-of-programming"
   },
   {
-    "id": 1,
-    "image": "assets/img/blog/rust-future-programming-blog.jpeg",
-    "title": "Why Rust is the Future of Programming?",
-    "description": "Rust has taken the programming world by storm. With its focus on safety, performance, and modernity, Rust is quickly becoming the go-to language for developers tackling some of the most complex challenges in software development.",
-    "link": "https://rustypeeps.blog/the-why-rust-is-the-future-of-programming"
+    "id": 2,
+    "image": "assets/img/blog/rust-blockchain.jpeg",
+    "title": "How Rust is Shaping the Future of Blockchain Development?",
+    "description": "The blockchain revolution is redefining industries, and at the heart of this transformation is Rust. With its unmatched performance, safety, and concurrency model, Rust is becoming the go-to programming language for blockchain developers building the decentralized systems of tomorrow.",
+    "link": "https://rustypeeps.blog/how-rust-is-shaping-the-future-of-blockchain-development"
   }
 ]
