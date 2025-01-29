@@ -1,12 +1,59 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import menuLinks from "../../data/nav.json";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+  const handleHashScroll = () => {
+    const hash = location.hash.slice(1);
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    handleHashScroll();
+  }, [location]);
+
+  const handleNavigation = (url, hash) => {
+    if (hash) {
+      navigate(`${url}#${hash}`);
+    } else {
+      navigate(url);
+    }
+  };
+
+  const renderLink = (item) => {
+    if (item.url?.startsWith("http")) {
+      return (
+        <a href={item.url} target="_blank" rel="noopener noreferrer">
+          {item.label}
+        </a>
+      );
+    }
+    if (item.href) {
+      return (
+        <Link
+          to={`${item.url || ""}#${item.href}`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavigation(item.url || "/", item.href);
+          }}>
+          {item.label}
+        </Link>
+      );
+    }
+
+    return <Link to={item.url}>{item.label}</Link>;
   };
 
   return (
@@ -21,35 +68,10 @@ const Navbar = () => {
                     <img src="/assets/img/logo/logo.png" alt="Logo" />
                   </Link>
                 </div>
-                <nav
-                  className="main-menu mobile-menu d-none d-xl-block"
-                  id="mobile-menu">
+                <nav className="main-menu mobile-menu d-none d-xl-block">
                   <ul>
                     {menuLinks.mainMenu.map((item, index) => (
-                      <li key={index}>
-                        {item.url && item.url.startsWith("http") ? (
-                          <a
-                            href={item.url}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            {item.label}
-                          </a>
-                        ) : (
-                          <Link
-                            {...(item.url && { to: item.url })}
-                            {...(item.href && {
-                              href: `#${item.href}`,
-                              onClick: (e) => {
-                                e.preventDefault();
-                                document
-                                  .getElementById(item.href)
-                                  ?.scrollIntoView({ behavior: "smooth" });
-                              },
-                            })}>
-                            {item.label}
-                          </Link>
-                        )}
-                      </li>
+                      <li key={index}>{renderLink(item)}</li>
                     ))}
                   </ul>
                 </nav>
@@ -88,21 +110,7 @@ const Navbar = () => {
         <nav className="sidebar-nav">
           <ul>
             {menuLinks.sidebarMenu.map((item, index) => (
-              <li key={index}>
-                <Link
-                  {...(item.url && { to: item.url })}
-                  {...(item.href && {
-                    href: `#${item.href}`,
-                    onClick: (e) => {
-                      e.preventDefault();
-                      document
-                        .getElementById(item.href)
-                        ?.scrollIntoView({ behavior: "smooth" });
-                    },
-                  })}>
-                  {item.label}
-                </Link>
-              </li>
+              <li key={index}>{renderLink(item)}</li>
             ))}
           </ul>
         </nav>

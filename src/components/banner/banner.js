@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <>
-      <section className="h10_banner-area">
+      <section className="h10_banner-area" >
         <div
           className="h10_single-banner bg-default"
           data-background="assets/img/banner/10/bg.jpg">

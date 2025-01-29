@@ -17234,7 +17234,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   background: #FFF;
   box-shadow: 0px 10px 60px 0px rgba(23, 22, 28, 0.1);
   padding: 45px 40px 50px;
-  max-width: 440px;
+  max-width: 580px;
   position: absolute;
   right: 110px;
   bottom: -200px;
@@ -17264,7 +17264,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 .h6_admission-form-title {
   margin-bottom: 20px;
 }
-.h6_admission-form-input input, .h6_admission-form-input textarea {
+.h6_admission-form-input input,.h6_admission-form-input select, .h6_admission-form-input textarea {
   width: 100%;
   border: 1px solid rgba(30, 30, 30, 0.1);
   height: 40px;

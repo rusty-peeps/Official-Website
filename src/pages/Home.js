@@ -17,6 +17,7 @@ import TabsContainer from "../components/course/TabsContainer";
 const Home = () => {
   return (
     <>
+      <div id="home"></div>
       <Navbar />
       <Banner />
       <AboutUsOne />
@@ -112,7 +113,7 @@ const Home = () => {
               </div>
               <div className="course-inner">
                 <div className="tab-content" id="pills-tabContent">
-                 <TabsContainer/>
+                  <TabsContainer />
                 </div>
               </div>
             </div>
