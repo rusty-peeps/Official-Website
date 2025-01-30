@@ -4,7 +4,7 @@ import EventArea from "../components/eventarea/EventArea";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/nav/Navbar";
 import TestimonialArea from "../components/testimonialSlider/testimonial";
-
+import EventTraining from "../components/aboutus/eventTraining";
 import TopCourse from "../components/topcourse/topcourse";
 import BrandSlider from "../components/brandslider/BrandSlider";
 import BlogSlider from "../components/blogslider/BlogSlider";
@@ -120,6 +120,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <EventTraining />
       <TestimonialArea />
       <CounterArea />
       {/* <EventArea /> */}

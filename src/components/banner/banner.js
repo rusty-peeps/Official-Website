@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <>
-      <section className="h10_banner-area" >
+      <section className="h10_banner-area">
         <div
           className="h10_single-banner bg-default"
           data-background="assets/img/banner/10/bg.jpg">
@@ -51,18 +51,12 @@ const Banner = () => {
                       Tailored Sessions
                       <i className="fa-light fa-arrow-right"></i>
                     </a>
-                    <a
-                      href="#tailored"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document
-                          .getElementById("tailored")
-                          ?.scrollIntoView({ behavior: "smooth" });
-                      }}
+                    <Link
+                      to="/carrertraining"
                       className="theme-btn theme-btn-10 theme-btn-10-transparent">
-                      Weekend Workshops
+                      Career Training
                       <i className="fa-light fa-arrow-right"></i>
-                    </a>
+                    </Link>
                   </div>
                   <div className="h10_banner-bottom-info">
                     <span>

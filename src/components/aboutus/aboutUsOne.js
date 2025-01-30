@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutUsOne = () => {
   return (
-    <section className="h2_about-area pt-120 pb-70" id='about'>
+    <section className="h2_about-area pt-120 pb-70" id="about">
       <img
         src="assets/img/about/2/shape-5.png"
         alt=""
@@ -61,22 +61,28 @@ const AboutUsOne = () => {
           <div className="col-xl-6 col-lg-6 col-md-10 mb-50">
             <div className="section-area-2 mb-35">
               <h2 className="section-title mb-20">
-                Education Instructors Play Crucial Role in Shaping The Lives
-                of Their{' '}
+                Education Instructors Play Crucial Role in Shaping The Lives of
+                Their{" "}
                 <span>
                   Students <img src="assets/img/banner/2/line.png" alt="" />
                 </span>
               </h2>
               <p className="section-text">
-              Our instructors are passionate mentors with extensive experience in Rust programming and education. They are committed to providing hands-on learning and personalized support to help students master complex concepts with ease.
-              By cultivating an engaging and practical learning environment, our educators ensure that every student builds a strong foundation and gains the confidence to tackle real-world challenges in Rust development.
+                Our instructors are passionate mentors with extensive experience
+                in Rust programming and education. They are committed to
+                providing hands-on learning and personalized support to help
+                students master complex concepts with ease. By cultivating an
+                engaging and practical learning environment, our educators
+                ensure that every student builds a strong foundation and gains
+                the confidence to tackle real-world challenges in Rust
+                development.
               </p>
             </div>
-            <div className="h2_about-button">
+            {/* <div className="h2_about-button">
               <Link to="#" className="theme-btn theme-btn-medium">
                 More Details
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

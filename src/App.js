@@ -6,12 +6,14 @@ import PrivateRoute from "./components/PrivateRoute";
 import CourseDetails from "./pages/CourseDetails";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact.js";
+import RequestBlog from "./pages/RequestBlog.js";
 import CarrerTraining from "./pages/CarrerTraining.js";
 const componentsMap = {
   CourseDetails: CourseDetails,
   Home: Home,
   Contact: Contact,
   CarrerTraining: CarrerTraining,
+  RequestBlog: RequestBlog,
 };
 const App = () => {
   return (
@@ -30,7 +32,7 @@ const App = () => {
                       <Component key={route.path} />
                     </PrivateRoute>
                   ) : (
-                    <Component key={route.path}/>
+                    <Component key={route.path} />
                   )
                 }
               />

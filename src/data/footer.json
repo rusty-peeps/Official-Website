@@ -1,6 +1,6 @@
 {
   "usefulLinks": [
-    { "label": "About", "url": "/about" },
+    { "label": "About", "url": "#about" },
     { "label": "Contact", "url": "/contact" },
     { "label": "Career Training", "url": "/carrertraining" }
   ],

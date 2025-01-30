@@ -2,14 +2,14 @@
   "mainMenu": [
     { "label": "Home", "href": "home" },
     { "label": "About", "href": "about" },
-    { "label": "Career Training", "url": "/carrertraining" },
+    { "label": "Weekend Workshops", "url": "#tailored" },
     { "label": "Blogs", "url": "https://rustypeeps.blog/" },
     { "label": "Contact", "url": "/contact" }
   ],
   "sidebarMenu": [
     { "label": "Home", "href": "home" },
     { "label": "About", "href": "about" },
-    { "label": "Career Training", "url": "/carrertraining" },
+    { "label": "Weekend Workshops", "url": "#tailored" },
     { "label": "Blogs", "url": "https://rustypeeps.blog/" },
     { "label": "Contact", "url": "/contact" }
   ]

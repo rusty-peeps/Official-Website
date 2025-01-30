@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutUsTwo = () => {
   return (
@@ -28,12 +28,12 @@ const AboutUsTwo = () => {
                 </ul>
               </div>
               <div className="about-content-button">
-                <Link
+                {/* <Link
                   to="about.html"
                   className="theme-btn about-btn theme-btn-medium"
                 >
                   More Details
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
