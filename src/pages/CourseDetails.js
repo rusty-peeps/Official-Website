@@ -10,21 +10,6 @@ import NewsLetter from "../components/newsletter/newsLetter";
 import coursesData from "../data/course_details.json";
 const localizer = momentLocalizer(moment);
 
-const eventsData = [
-  // {
-  //   id: 1,
-  //   title: "Initial Consulting",
-  //   start: "2024-11-25T10:00:00",
-  //   end: "2024-11-25T11:00:00",
-  // },
-  // {
-  //   id: 2,
-  //   title: "Follow-Up Session",
-  //   start: "2024-11-26T14:00:00",
-  //   end: "2024-11-26T15:00:00",
-  // },
-];
-
 const generateTimeSlots = (start, end) => {
   const slots = [];
   let current = moment(start, "HH:mm");
@@ -71,9 +56,6 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 const CourseDetails = () => {
   const { id } = useParams();
   const course = coursesData.find((course) => course.id === id);
-  // if (!course) {
-  //   return <div>Course not found</div>;
-  // }
   const [events, setEvents] = useState([]);
   const [popupVisible, setPopupVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -81,29 +63,36 @@ const CourseDetails = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [courseId, setCourseId] = useState("course_id_example"); 
-  const [price, setPrice] = useState(1000);
   const timeSlots = generateTimeSlots("09:00", "17:00");
-
   useEffect(() => {
-    const formattedEvents = eventsData.map((event) => ({
-      ...event,
-      start: new Date(event.start),
-      end: new Date(event.end),
-    }));
-    setEvents(formattedEvents);
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/slots`);
+        const formattedEvents = response.data.map((event) => ({
+          ...event,
+          id: event._id,
+          title: `Booking by ${event.name}`,
+          start: new Date(event.start_date),
+          end: new Date(event.end_date),
+        }));
+
+        setEvents(formattedEvents);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents();
   }, []);
 
   const handleDateSelection = (slotInfo) => {
     const currentTime = moment();
+    const selectedTime = moment(slotInfo.start);
 
-  // Allow the selection of today's date, but ensure the time is after the current moment
-  const selectedTime = moment(slotInfo.start);
-  
-  if (selectedTime.isBefore(currentTime, 'day')) {
-    alert("Please select a time in the future.");
-    return;
-  }
+    if (selectedTime.isBefore(currentTime, "day")) {
+      alert("Please select a time in the future.");
+      return;
+    }
     setSelectedDate(slotInfo.start);
     setPopupVisible(true);
   };
@@ -120,26 +109,10 @@ const CourseDetails = () => {
           name: "Your Company Name",
           description: "Payment for Order",
           order_id: response.data.order_id,
-          handler: async function (paymentResponse) {
-            console.log("Payment Success:", paymentResponse);
-            try {
-              const res = await axios.post(`${BASE_URL}/slots/verify-capture`, {
-                razorpay_order_id: paymentResponse.razorpay_order_id,
-                razorpay_payment_id: paymentResponse.razorpay_payment_id,
-                razorpay_signature: paymentResponse.razorpay_signature,
-              });
-
-              if (res.status === 200) {
-                console.log("Payment Verified and Slot Booked");
-              }
-            } catch (error) {
-              console.error("Error verifying payment:", error);
-            }
-          },
           prefill: {
-            name: "Customer Name",
-            email: "customer@example.com",
-            phone_number: "1234567890",
+            name,
+            email,
+            phone,
           },
           theme: {
             color: "#F37254",
@@ -148,7 +121,7 @@ const CourseDetails = () => {
 
         const rzp = new window.Razorpay(options);
         rzp.open();
-
+        alert("Slot booked initiate You will get email soon!");
         return {
           order_id: response.data.order_id,
           amount: amount,
@@ -169,26 +142,25 @@ const CourseDetails = () => {
   const calendarStyle = (date) => {
     const today = new Date();
     today.setDate(today.getDate() - 1); // Subtract 1 day to allow the current date and disable the day before
-    
+
     // Compare the date with today minus 1 day
     if (date < today) {
       return {
         style: {
-          backgroundColor: '#D3D3D3', // Light grey background for past dates
-          cursor: 'not-allowed', // Change cursor to indicate it's disabled
-          pointerEvents: 'none', // Disable interaction with past dates
-          color: '#A9A9A9', // Grey out the text of the date
-          border: '1px solid #A9A9A9', // Optional border to make it look more disabled
+          backgroundColor: "#D3D3D3", // Light grey background for past dates
+          cursor: "not-allowed", // Change cursor to indicate it's disabled
+          pointerEvents: "none", // Disable interaction with past dates
+          color: "#A9A9A9", // Grey out the text of the date
+          border: "1px solid #A9A9A9", // Optional border to make it look more disabled
           margin: 0,
           padding: 0,
         },
       };
     }
-  
+
     return {};
   };
-  
- 
+
   const bookSlot = async (slotData) => {
     try {
       const response = await axios.post(`${BASE_URL}/slots/book`, slotData);
@@ -230,7 +202,7 @@ const CourseDetails = () => {
       alert("This slot overlaps with an existing booking!");
       return;
     }
-    const orderData = await createOrder(price);
+    const orderData = await createOrder(course.priceInt);
     if (!orderData) return;
 
     const { order_id, amount, currency } = orderData;
@@ -248,7 +220,7 @@ const CourseDetails = () => {
       email,
       phone,
       courseId: course.id,
-      price,
+      price: course.priceInt,
       paymentId: order_id,
       platform: "goggle",
       dateTime: startDateTime.toISOString(),
@@ -260,9 +232,21 @@ const CourseDetails = () => {
       alert("Error booking slot. Please try again later.");
       return;
     }
-    alert("Slot booked successfully!");
   };
- 
+  const isSlotDisabled = (slot) => {
+    const now = new Date();
+    const selectedDay = moment(selectedDate).startOf("day");
+    const today = moment().startOf("day");
+    const startDateTime = new Date(
+      moment(selectedDate).format("YYYY-MM-DD") + "T" + slot
+    );
+    const endDateTime = moment(startDateTime).add(30, "minutes").toDate();
+    const isPastTime = selectedDay.isSame(today, "day") && startDateTime < now;
+    const isBooked = events.some(
+      (event) => startDateTime < event.end && endDateTime > event.start
+    );
+    return isPastTime || isBooked;
+  };
 
   return (
     <>
@@ -316,7 +300,7 @@ const CourseDetails = () => {
                             Courses Description
                           </h4>
                           <p className="mb-25">{course.description1}</p>
-                          <p className="mb-40"  >{course.description2}</p>
+                          <p className="mb-40">{course.description2}</p>
                           <h4 className="course_details-content-title mb-20">
                             {course.sub_header}
                           </h4>
@@ -390,9 +374,7 @@ const CourseDetails = () => {
                           style={{ height: 400 }}
                           className="calendar-container"
                           dayPropGetter={calendarStyle}
-                          
                         />
-
                         {popupVisible && (
                           <div style={popupStyles}>
                             <p>
@@ -400,22 +382,35 @@ const CourseDetails = () => {
                               {moment(selectedDate).format("MMMM Do YYYY")}
                             </p>
                             <div style={slotsContainerStyle}>
-                              {timeSlots.map((slot) => (
-                                <div
-                                  key={slot}
-                                  style={{
-                                    ...slotBoxStyle,
-                                    backgroundColor:
-                                      selectedSlot === slot
+                              {timeSlots.map((slot) => {
+                                const disabled = isSlotDisabled(slot);
+                                return (
+                                  <div
+                                    key={slot}
+                                    style={{
+                                      ...slotBoxStyle,
+                                      backgroundColor: disabled
+                                        ? "#E0E0E0"
+                                        : selectedSlot === slot
                                         ? "#007BFF"
                                         : "#FFF",
-                                    color:
-                                      selectedSlot === slot ? "#FFF" : "#000",
-                                  }}
-                                  onClick={() => setSelectedSlot(slot)}>
-                                  {moment(slot, "HH:mm").format("h:mm A")}
-                                </div>
-                              ))}
+                                      color: disabled
+                                        ? "#A9A9A9"
+                                        : selectedSlot === slot
+                                        ? "#FFF"
+                                        : "#000",
+                                      cursor: disabled
+                                        ? "not-allowed"
+                                        : "pointer",
+                                      pointerEvents: disabled ? "none" : "auto",
+                                    }}
+                                    onClick={() =>
+                                      !disabled && setSelectedSlot(slot)
+                                    }>
+                                    {moment(slot, "HH:mm").format("h:mm A")}
+                                  </div>
+                                );
+                              })}
                             </div>
                             <div
                               style={{ marginTop: "10px" }}
@@ -430,8 +425,14 @@ const CourseDetails = () => {
                                   width: "200px",
                                   borderRadius: "5px",
                                 }}
-                                onClick={() => setPopupVisible(false)}>
-                                Confirm
+                                disabled={!selectedSlot}
+                                onClick={() => {
+                                  alert(
+                                    "Slot selected successfully! Please confirm booking."
+                                  );
+                                  setPopupVisible(false);
+                                }}>
+                                Book Slot
                               </button>
                               <button
                                 style={{
