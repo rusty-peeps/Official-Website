@@ -1,8 +1,38 @@
-import React from "react";
 import Navbar from "../components/nav/Navbar";
 import Footer from "../components/footer/footer";
-
+import React, { useState } from "react";
+import axios from "axios";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 function CarrerTraining() {
+  const [formData, setFormData] = useState({
+    institution_name: "",
+    contact_person: "",
+    destination_role: "",
+    phone_number: "",
+    email_address: "",
+    selected_course: "",
+    start_date: "",
+    number_of_participants: "",
+    additional_support: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const response = await axios.post(`${BASE_URL}/admissions`, formData);
+      console.log("Form submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    }
+  };
   return (
     <div>
       {" "}
@@ -54,42 +84,69 @@ function CarrerTraining() {
                 <img src="assets/img/admission/6/bg.jpg" alt="" />
                 <div class="h6_admission-form">
                   <h5 class="h6_admission-form-title">Admissions</h5>
-                  <form action="#">
-                    <div class="row g-15">
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
+                  <form action="#" onSubmit={handleSubmit}>
+                    <div className="row g-15">
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
                           <input
                             type="text"
+                            name="institution_name"
                             placeholder="Name of institution/organization"
+                            value={formData.institution_name}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
                           <input
                             type="text"
+                            name="contact_person"
                             placeholder="Contact person's name"
+                            value={formData.contact_person}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
-                          <input type="text" placeholder="Designation/role" />
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
+                          <input
+                            type="text"
+                            name="destination_role"
+                            placeholder="Designation/role"
+                            value={formData.destination_role}
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
-                          <input type="text" placeholder="Phone number" />
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
+                          <input
+                            type="text"
+                            name="phone_number"
+                            placeholder="Phone number"
+                            value={formData.phone_number}
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
-                          <input type="email" placeholder="Email address" />
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
+                          <input
+                            type="email"
+                            name="email_address"
+                            placeholder="Email address"
+                            value={formData.email_address}
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
-                          <select>
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
+                          <select
+                            name="selected_course"
+                            value={formData.selected_course}
+                            onChange={handleChange}>
                             <option value="">Select a course</option>
                             <option value="course1">Course 1</option>
                             <option value="course2">Course 2</option>
@@ -97,35 +154,44 @@ function CarrerTraining() {
                           </select>
                         </div>
                       </div>
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
                           <label htmlFor="">Preferred start date</label>
-                          <input type="date" />
-                        </div>
-                      </div>
-                      <div class="col-xl-6 col-sm-6">
-                        <div class="h6_admission-form-input">
-                          <br />
                           <input
-                            type="text"
-                            placeholder="Expected number of participants"
+                            type="date"
+                            name="start_date"
+                            value={formData.start_date}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
-                      <div class="col-12">
-                        <div class="h6_admission-form-input">
-                          <textarea
-                            name="message"
-                            placeholder="Do you need any additional support?"></textarea>
+                      <div className="col-xl-6 col-sm-6">
+                        <div className="h6_admission-form-input">
+                          <br />
+                          <input
+                            type="text"
+                            name="number_of_participants"
+                            placeholder="Expected number of participants"
+                            value={formData.number_of_participants}
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
-
-                      <div class="col-12">
-                        <div class="h6_admission-form-btn">
+                      <div className="col-12">
+                        <div className="h6_admission-form-input">
+                          <textarea
+                            name="additional_support"
+                            placeholder="Do you need any additional support?"
+                            value={formData.additional_support}
+                            onChange={handleChange}></textarea>
+                        </div>
+                      </div>
+                      <div className="col-12">
+                        <div className="h6_admission-form-btn">
                           <button
                             type="submit"
-                            class="theme-btn h6_admission-btn theme-btn-full theme-btn-6">
-                            Book<i class="fa-light fa-arrow-right"></i>
+                            className="theme-btn h6_admission-btn theme-btn-full theme-btn-6">
+                            Book<i className="fa-light fa-arrow-right"></i>
                           </button>
                         </div>
                       </div>
