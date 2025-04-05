@@ -16656,13 +16656,36 @@ input:focus::placeholder, textarea:focus::placeholder {
   .contact-info {
     margin-left: 30px;
   }
+  .hello{
+    display: none;
+  }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .contact-info {
     margin-left: 10px;
   }
+  .hello{
+    display: none;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
+  .hello2{
+    display: none;
+  }
+  .footer-logo{
+    text-align: center;
+  }
+  .footer-widget {
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-widget-list {
+ display: none;
+}
   .contact-info {
     margin-left: 0;
   }
@@ -19381,7 +19404,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   background-color: var(--clr-color-lightPurple);
 }
 .footer-logo {
-  margin-bottom: 15px;
+  margin-top: -45px;
 }
 
 .footer-social ul {

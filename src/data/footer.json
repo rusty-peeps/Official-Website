@@ -2,9 +2,13 @@
   "usefulLinks": [
     { "label": "About", "url": "#about" },
     { "label": "Contact", "url": "/contact" },
-    { "label": "Career Training", "url": "/carrertraining" }
-  ],
-  "categories": [
+    { "label": "Career Training", "url": "/carrertraining" },
     { "label": "Blogs", "url": "https://rustypeeps.blog/" }
+  ],
+  "courses": [
+    { "label": "Introduction to Rust", "url": "/carrertraining" },
+    { "label": "Rust Basics", "url": "/carrertraining" },
+    { "label": "Rust Functions", "url": "/carrertraining" },
+    { "label": "Rust Variables", "url": "/carrertraining" }
   ]
 }

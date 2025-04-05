@@ -148,9 +148,10 @@ function CarrerTraining() {
                             value={formData.selected_course}
                             onChange={handleChange}>
                             <option value="">Select a course</option>
-                            <option value="course1">Course 1</option>
-                            <option value="course2">Course 2</option>
-                            <option value="course3">Course 3</option>
+                            <option value="Beginning WIth Rust">Beginning WIth Rust</option>
+                            <option value="Advancing with Rust">Advancing with Rust</option>
+                            <option value="Blockchain with Rust">Blockchain with Rust</option>
+                            <option value="Backend With Rust">Backend With Rust</option>
                           </select>
                         </div>
                       </div>

@@ -469,6 +469,7 @@ const CourseDetails = () => {
           </div>
         </div>
       </section>
+      <div id="newsletter"></div>
       <NewsLetter />
       <Footer />
     </>

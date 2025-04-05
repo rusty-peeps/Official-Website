@@ -81,7 +81,7 @@ const Navbar = () => {
               <div className="header-right">
                 <div className="header-btn d-none d-sm-block">
                   <Link
-                    to="#"
+                    to="#newsletter"
                     className="header-btn theme-btn theme-btn-medium">
                     Subscribe to Newsletter
                   </Link>
@@ -98,22 +98,60 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
-        <div className="sidebar-header">
-          <div className="logo">
-            <img src="assets/img/logo/logo-white.png" alt="Logo" />
+      <div>
+        <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+          <div className="sidebar-header">
+            <div className="logo">
+              <img src="assets/img/logo/logo-white.png" alt="Logo" />
+            </div>
+            <button className="close-btn" onClick={toggleSidebar}>
+              <i className="fal fa-times"></i>
+            </button>
           </div>
-          <button className="close-btn" onClick={toggleSidebar}>
-            <i className="fal fa-times"></i>
-          </button>
+          <nav className="sidebar-nav">
+            <ul>
+              {menuLinks.sidebarMenu.map((item, index) => (
+                <li key={index}>{renderLink(item)}</li>
+              ))}
+            </ul>
+          </nav>
+          <div className="footer-social">
+            <br />
+            <ul>
+              <li>
+                <Link to="#">
+                  <i
+                    style={{ color: "white" }}
+                    className="fa-brands fa-twitter"></i>
+                </Link>
+              </li>
+              <li>
+                <Link to="#">
+                  <i
+                    style={{ color: "white" }}
+                    className="fa-brands fa-facebook-f"></i>
+                </Link>
+              </li>
+              <li>
+                <Link to="#">
+                  <i
+                    style={{ color: "white" }}
+                    className="fa-brands fa-linkedin-in"></i>
+                </Link>
+              </li>
+              <li>
+                <Link to="#">
+                  <i
+                    style={{ color: "white" }}
+                    className="fa-brands fa-youtube"></i>
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <nav className="sidebar-nav">
-          <ul>
-            {menuLinks.sidebarMenu.map((item, index) => (
-              <li key={index}>{renderLink(item)}</li>
-            ))}
-          </ul>
-        </nav>
+        {isSidebarOpen && (
+          <div className="sidebar-overlay" onClick={toggleSidebar}></div>
+        )}
       </div>
       <div
         className={`sidebar-overlay ${isSidebarOpen ? "active" : ""}`}

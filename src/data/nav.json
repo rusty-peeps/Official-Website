@@ -3,6 +3,7 @@
     { "label": "Home", "href": "home" },
     { "label": "About", "href": "about" },
     { "label": "Weekend Workshops", "url": "#tailored" },
+    { "label": "Career Training", "url": "/carrertraining" },
     { "label": "Blogs", "url": "https://rustypeeps.blog/" },
     { "label": "Contact", "url": "/contact" }
   ],
@@ -10,6 +11,7 @@
     { "label": "Home", "href": "home" },
     { "label": "About", "href": "about" },
     { "label": "Weekend Workshops", "url": "#tailored" },
+    { "label": "Career Training", "url": "/carrertraining" },
     { "label": "Blogs", "url": "https://rustypeeps.blog/" },
     { "label": "Contact", "url": "/contact" }
   ]

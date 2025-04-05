@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 export const FooterWidget = ({ title, links }) => (
-  <div className="footer-widget mb-40">
+  <>
     <h5 className="footer-widget-title">{title}</h5>
     <ul className="footer-widget-list">
       {links.map((link, index) => (
@@ -11,5 +11,5 @@ export const FooterWidget = ({ title, links }) => (
         </li>
       ))}
     </ul>
-  </div>
+  </>
 );

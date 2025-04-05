@@ -123,10 +123,12 @@ const Home = () => {
       <EventTraining />
       <TestimonialArea />
       <CounterArea />
+
       {/* <EventArea /> */}
       {/* <TopCourse /> */}
       {/* <BrandSlider /> */}
       <BlogSlider />
+      <div id="newsletter"></div>
       <NewsLetter />
       <Footer />
     </>
