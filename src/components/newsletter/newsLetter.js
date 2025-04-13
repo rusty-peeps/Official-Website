@@ -1,31 +1,34 @@
 import React, { useState } from "react";
-import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+import { subscribeToNewsletter } from "../../api/post";
+import { toast } from "react-toastify";
+
 function NewsLetter() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
 
-  // Handle input change
-  const handleChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const handleChange = (e) => setEmail(e.target.value);
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      toast.warn("Please enter a valid email address.");
+      return;
+    }
+
     setLoading(true);
-    setMessage("");
 
     try {
-      const response = await axios.post(
-        `${BASE_URL}/newsletter`,
-        { email }
-      );
-      setMessage("Subscription successful! 🎉");
-      setEmail(""); // Reset input
+      const response = await subscribeToNewsletter(email);
+      
+      if (response.code === 201) {
+        toast.error(response.message);
+      } else {
+        toast.success(response.message);
+        setEmail(""); // Clear input on success
+      }
     } catch (error) {
-      setMessage("Failed to subscribe. Please try again.");
+      toast.error("❌ Failed to subscribe. Please try again.");
       console.error(error);
     } finally {
       setLoading(false);
@@ -53,12 +56,12 @@ function NewsLetter() {
                       value={email}
                       onChange={handleChange}
                       required
+                      disabled={loading}
                     />
                     <button type="submit" disabled={loading}>
                       {loading ? "Subscribing..." : "Subscribe"}
                     </button>
                   </div>
-                  {message && <p className="message">{message}</p>}
                 </form>
               </div>
             </div>

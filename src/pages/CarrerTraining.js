@@ -1,8 +1,8 @@
 import Navbar from "../components/nav/Navbar";
 import Footer from "../components/footer/footer";
 import React, { useState } from "react";
-import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+import { submitCareerTraining } from "../api/post";
+import { toast } from "react-toastify";
 function CarrerTraining() {
   const [formData, setFormData] = useState({
     institution_name: "",
@@ -16,21 +16,73 @@ function CarrerTraining() {
     additional_support: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const validateForm = () => {
+    const {
+      institution_name,
+      contact_person,
+      destination_role,
+      phone_number,
+      email_address,
+      selected_course,
+      start_date,
+      number_of_participants,
+    } = formData;
+
+    if (!institution_name.trim())
+      return toast.warn("Institution name is required.");
+    if (!contact_person.trim())
+      return toast.warn("Contact person is required.");
+    if (!destination_role.trim())
+      return toast.warn("Destination role is required.");
+    if (!selected_course.trim()) return toast.warn("Please select a course.");
+    if (!start_date.trim()) return toast.warn("Start date is required.");
+    if (!number_of_participants.trim() || isNaN(number_of_participants))
+      return toast.warn("Enter a valid number of participants.");
+    const phoneRegex = /^[0-9]{7,15}$/;
+    if (!phoneRegex.test(phone_number))
+      return toast.warn("Enter a valid phone number.");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email_address))
+      return toast.warn("Enter a valid email address.");
+
+    return true;
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setLoading(true);
 
     try {
-      const response = await axios.post(`${BASE_URL}/admissions`, formData);
-      console.log("Form submitted successfully:", response.data);
+      await submitCareerTraining(formData);
+      toast.success("Submitted successfully!");
+      setFormData({
+        institution_name: "",
+        contact_person: "",
+        destination_role: "",
+        phone_number: "",
+        email_address: "",
+        selected_course: "",
+        start_date: "",
+        number_of_participants: "",
+        additional_support: "",
+      });
     } catch (error) {
-      console.error("Error submitting the form:", error);
+      toast.error("Submission failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -148,10 +200,18 @@ function CarrerTraining() {
                             value={formData.selected_course}
                             onChange={handleChange}>
                             <option value="">Select a course</option>
-                            <option value="Beginning WIth Rust">Beginning WIth Rust</option>
-                            <option value="Advancing with Rust">Advancing with Rust</option>
-                            <option value="Blockchain with Rust">Blockchain with Rust</option>
-                            <option value="Backend With Rust">Backend With Rust</option>
+                            <option value="Beginning WIth Rust">
+                              Beginning WIth Rust
+                            </option>
+                            <option value="Advancing with Rust">
+                              Advancing with Rust
+                            </option>
+                            <option value="Blockchain with Rust">
+                              Blockchain with Rust
+                            </option>
+                            <option value="Backend With Rust">
+                              Backend With Rust
+                            </option>
                           </select>
                         </div>
                       </div>

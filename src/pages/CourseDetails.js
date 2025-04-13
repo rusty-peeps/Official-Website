@@ -3,54 +3,15 @@ import Navbar from "../components/nav/Navbar";
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import Util from "../helper/course_details";
 import axios from "axios";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import NewsLetter from "../components/newsletter/newsLetter";
 import coursesData from "../data/course_details.json";
+import { toast } from "react-toastify";
 const localizer = momentLocalizer(moment);
 
-const generateTimeSlots = (start, end) => {
-  const slots = [];
-  let current = moment(start, "HH:mm");
-  const endTime = moment(end, "HH:mm");
-
-  while (current.isBefore(endTime)) {
-    slots.push(current.format("HH:mm"));
-    current = current.add(30, "minutes");
-  }
-
-  return slots;
-};
-const popupStyles = {
-  position: "fixed",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  backgroundColor: "white",
-  padding: "20px",
-  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-  zIndex: 1000,
-};
-
-const slotsContainerStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "10px",
-  marginTop: "10px",
-};
-
-const slotBoxStyle = {
-  width: "80px",
-  height: "80px",
-  border: "1px solid #007BFF",
-  borderRadius: "5px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  cursor: "pointer",
-  userSelect: "none",
-};
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const CourseDetails = () => {
@@ -63,7 +24,7 @@ const CourseDetails = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const timeSlots = generateTimeSlots("09:00", "17:00");
+  const timeSlots = Util.generateTimeSlots("09:00", "17:00");
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -141,17 +102,16 @@ const CourseDetails = () => {
   };
   const calendarStyle = (date) => {
     const today = new Date();
-    today.setDate(today.getDate() - 1); // Subtract 1 day to allow the current date and disable the day before
+    today.setDate(today.getDate() - 1); 
 
-    // Compare the date with today minus 1 day
     if (date < today) {
       return {
         style: {
-          backgroundColor: "#D3D3D3", // Light grey background for past dates
-          cursor: "not-allowed", // Change cursor to indicate it's disabled
-          pointerEvents: "none", // Disable interaction with past dates
-          color: "#A9A9A9", // Grey out the text of the date
-          border: "1px solid #A9A9A9", // Optional border to make it look more disabled
+          backgroundColor: "#D3D3D3",
+          cursor: "not-allowed",
+          pointerEvents: "none", 
+          color: "#A9A9A9", 
+          border: "1px solid #A9A9A9", 
           margin: 0,
           padding: 0,
         },
@@ -376,19 +336,19 @@ const CourseDetails = () => {
                           dayPropGetter={calendarStyle}
                         />
                         {popupVisible && (
-                          <div style={popupStyles}>
+                          <div style={Util.popupStyles}>
                             <p>
                               Select Time Slot for{" "}
                               {moment(selectedDate).format("MMMM Do YYYY")}
                             </p>
-                            <div style={slotsContainerStyle}>
+                            <div style={Util.slotsContainerStyle}>
                               {timeSlots.map((slot) => {
                                 const disabled = isSlotDisabled(slot);
                                 return (
                                   <div
                                     key={slot}
                                     style={{
-                                      ...slotBoxStyle,
+                                      ...Util.slotBoxStyle,
                                       backgroundColor: disabled
                                         ? "#E0E0E0"
                                         : selectedSlot === slot

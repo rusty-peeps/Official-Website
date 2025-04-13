@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AboutUsTwo = () => {
   return (
-    <section className="about-area pt-140 pb-90">
+    <section className="about-area pb-90">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-xl-6 col-lg-6 col-md-10">

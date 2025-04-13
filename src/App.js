@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact.js";
 import RequestBlog from "./pages/RequestBlog.js";
 import CarrerTraining from "./pages/CarrerTraining.js";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const componentsMap = {
   CourseDetails: CourseDetails,
   Home: Home,
@@ -40,6 +42,7 @@ const App = () => {
           })}
         </Routes>
       </Router>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 };

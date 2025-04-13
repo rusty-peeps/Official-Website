@@ -2,10 +2,42 @@ import NewsLetter from "../components/newsletter/newsLetter";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/nav/Navbar";
 import React, { useState } from "react";
-import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+import { sendContactMessage } from "../api/post";
+import { toast } from "react-toastify";
+
 function Contact() {
-  // State for form fields
+  const validateForm = () => {
+    const { name, email, phone, message, agree } = formData;
+
+    if (!name.trim() || name.length < 2) {
+      toast.warn("Please enter a valid name (min 2 characters).");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim() || !emailRegex.test(email)) {
+      toast.warn("Please enter a valid email address.");
+      return false;
+    }
+
+    const phoneRegex = /^[0-9]{7,15}$/;
+    if (phone.trim() && !phoneRegex.test(phone)) {
+      toast.warn("Phone number should contain 7-15 digits.");
+      return false;
+    }
+
+    if (!message.trim() || message.length < 3) {
+      toast.warn("Please enter a message (min 3 characters).");
+      return false;
+    }
+
+    if (!agree) {
+      toast.warn("You must agree to the terms before submitting.");
+      return false;
+    }
+
+    return true;
+  };
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,44 +47,32 @@ function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: type === "checkbox" ? checked : value,
-    });
+    }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!formData.agree) {
-      setErrorMessage("You must agree to the terms before submitting.");
-      return;
-    }
-
+    if (!validateForm()) return;
     setLoading(true);
-    setErrorMessage("");
-    setSuccessMessage("");
 
     try {
-      const response = await axios.post(`${BASE_URL}/other/contact`, formData);
-      setSuccessMessage("Message sent successfully!");
+      await sendContactMessage(formData);
+      toast.success("Message sent successfully!");
       setFormData({
         name: "",
         email: "",
         phone: "",
         message: "",
         agree: false,
-      }); // Reset form
+      });
     } catch (error) {
-      setErrorMessage("Error sending message. Please try again.");
-      console.error(error);
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -69,12 +89,6 @@ function Contact() {
                 <div className="col-xl-8 col-md-8">
                   <div className="contact-content pr-8 mb-4">
                     <h3 className="contact-title mb-3">Send Me a Message</h3>
-                    {successMessage && (
-                      <p className="success-message">{successMessage}</p>
-                    )}
-                    {errorMessage && (
-                      <p className="error-message">{errorMessage}</p>
-                    )}
                     <form onSubmit={handleSubmit} className="contact-form">
                       <div className="row">
                         <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6">
@@ -183,6 +197,11 @@ function Contact() {
                         <li>
                           <a href="#">
                             <i className="fa-brands fa-linkedin-in"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a to="#">
+                            <i className="fa-brands fa-youtube"></i>
                           </a>
                         </li>
                       </ul>

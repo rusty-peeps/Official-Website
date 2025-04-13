@@ -20,13 +20,7 @@ const BlogSlider = () => {
           </div>
           <div className="col-xl-4 col-lg-4 col-md-4">
             <div className="h8_blog-navigation mb-30">
-              <div
-                className="h2_about-button"
-                style={{ paddingRight: "120px" }}>
-                <Link to="/request" className="theme-btn theme-btn-medium">
-                  Request Blog
-                </Link>
-              </div>
+             
               <div className="h2_about-button">
                 <a
                   href="https://rustypeeps.blog/"

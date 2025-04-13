@@ -28,11 +28,5 @@
     "element": "CarrerTraining",
     "title": "Carrer Training",
     "requiresAuth": false
-  },
-  {
-    "path": "/request",
-    "element": "RequestBlog",
-    "title": "RequestBlog",
-    "requiresAuth": false
   }
 ]
