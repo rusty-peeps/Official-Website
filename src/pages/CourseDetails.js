@@ -4,16 +4,15 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import Util from "../helper/course_details";
-import axios from "axios";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import NewsLetter from "../components/newsletter/newsLetter";
 import coursesData from "../data/course_details.json";
+import { fetchSlotEvents } from "../api/get";
+import { createSlotOrder,bookSlotApi } from "../api/post";
 import { toast } from "react-toastify";
 const localizer = momentLocalizer(moment);
 
-
-const BASE_URL = process.env.REACT_APP_BASE_URL;
 const CourseDetails = () => {
   const { id } = useParams();
   const course = coursesData.find((course) => course.id === id);
@@ -25,24 +24,18 @@ const CourseDetails = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const timeSlots = Util.generateTimeSlots("09:00", "17:00");
+
+  const fetchEvents = async () => {
+    try {
+      const response = await fetchSlotEvents();
+      const formattedEvents = Util.formatEvents(response);
+      setEvents(formattedEvents);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/slots`);
-        const formattedEvents = response.data.map((event) => ({
-          ...event,
-          id: event._id,
-          title: `Booking by ${event.name}`,
-          start: new Date(event.start_date),
-          end: new Date(event.end_date),
-        }));
-
-        setEvents(formattedEvents);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-
     fetchEvents();
   }, []);
 
@@ -51,25 +44,24 @@ const CourseDetails = () => {
     const selectedTime = moment(slotInfo.start);
 
     if (selectedTime.isBefore(currentTime, "day")) {
-      alert("Please select a time in the future.");
+      toast.warn("Please select a date in the future.");
       return;
     }
     setSelectedDate(slotInfo.start);
     setPopupVisible(true);
   };
+
   const createOrder = async (amount) => {
     try {
-      const response = await axios.post(`${BASE_URL}/slots/order`, {
-        amount: amount,
-      });
-      if (response && response.data && response.data.order_id) {
+      const response = await createSlotOrder(amount);
+      if (response && response.order_id) {
         const options = {
           key: process.env.REACT_APP_RAZORPAY_KEY_ID,
           amount: amount * 100,
           currency: "INR",
           name: "Your Company Name",
           description: "Payment for Order",
-          order_id: response.data.order_id,
+          order_id: response.order_id,
           prefill: {
             name,
             email,
@@ -82,49 +74,25 @@ const CourseDetails = () => {
 
         const rzp = new window.Razorpay(options);
         rzp.open();
-        alert("Slot booked initiate You will get email soon!");
+        toast.success("Slot booked initiate You will get email soon!");
         return {
-          order_id: response.data.order_id,
+          order_id: response.order_id,
           amount: amount,
           currency: "INR",
         };
       } else {
-        console.error("Order creation failed: No order ID returned");
+        toast.error("Order creation failed. Please try again.");
         return null;
       }
     } catch (error) {
-      console.error(
-        "Error creating order:",
-        error.response?.data || error.message
-      );
+      toast.error("Error creating order. Please try again.");
       return null;
     }
-  };
-  const calendarStyle = (date) => {
-    const today = new Date();
-    today.setDate(today.getDate() - 1); 
-
-    if (date < today) {
-      return {
-        style: {
-          backgroundColor: "#D3D3D3",
-          cursor: "not-allowed",
-          pointerEvents: "none", 
-          color: "#A9A9A9", 
-          border: "1px solid #A9A9A9", 
-          margin: 0,
-          padding: 0,
-        },
-      };
-    }
-
-    return {};
   };
 
   const bookSlot = async (slotData) => {
     try {
-      const response = await axios.post(`${BASE_URL}/slots/book`, slotData);
-
+      const response = await bookSlotApi(slotData);
       if (response.status === 200) {
         return response.data;
       }
@@ -133,19 +101,21 @@ const CourseDetails = () => {
         "Error booking slot:",
         error.response?.data || error.message
       );
+      toast.error("Error booking slot. Please try again.");
       return null;
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !phone) {
-      alert("Please fill in all fields.");
+      toast.warn("Please fill in all fields.");
       return;
     }
 
     if (!selectedSlot) {
-      alert("Please select a time slot.");
+      toast.warn("Please select a time slot.");
       return;
     }
 
@@ -159,13 +129,13 @@ const CourseDetails = () => {
     );
 
     if (isOverlapping) {
-      alert("This slot overlaps with an existing booking!");
+      toast.warn("This slot overlaps with an existing booking!");
       return;
     }
     const orderData = await createOrder(course.priceInt);
     if (!orderData) return;
 
-    const { order_id, amount, currency } = orderData;
+    const { order_id} = orderData;
     const newEvent = {
       id: events.length + 1,
       title: `Booking by ${name}`,
@@ -189,23 +159,9 @@ const CourseDetails = () => {
     };
     const response = await bookSlot(formData);
     if (!response) {
-      alert("Error booking slot. Please try again later.");
+      toast.error("Error booking slot. Please try again.");
       return;
     }
-  };
-  const isSlotDisabled = (slot) => {
-    const now = new Date();
-    const selectedDay = moment(selectedDate).startOf("day");
-    const today = moment().startOf("day");
-    const startDateTime = new Date(
-      moment(selectedDate).format("YYYY-MM-DD") + "T" + slot
-    );
-    const endDateTime = moment(startDateTime).add(30, "minutes").toDate();
-    const isPastTime = selectedDay.isSame(today, "day") && startDateTime < now;
-    const isBooked = events.some(
-      (event) => startDateTime < event.end && endDateTime > event.start
-    );
-    return isPastTime || isBooked;
   };
 
   return (
@@ -333,7 +289,7 @@ const CourseDetails = () => {
                           defaultDate={new Date()}
                           style={{ height: 400 }}
                           className="calendar-container"
-                          dayPropGetter={calendarStyle}
+                          dayPropGetter={Util.calendarStyle}
                         />
                         {popupVisible && (
                           <div style={Util.popupStyles}>
@@ -343,7 +299,11 @@ const CourseDetails = () => {
                             </p>
                             <div style={Util.slotsContainerStyle}>
                               {timeSlots.map((slot) => {
-                                const disabled = isSlotDisabled(slot);
+                                const disabled = Util.isSlotDisabled(
+                                  slot,
+                                  selectedDate,
+                                  events
+                                );
                                 return (
                                   <div
                                     key={slot}
@@ -390,6 +350,7 @@ const CourseDetails = () => {
                                   alert(
                                     "Slot selected successfully! Please confirm booking."
                                   );
+                                  toast.success("Slot selected successfully! Please confirm booking.");
                                   setPopupVisible(false);
                                 }}>
                                 Book Slot
