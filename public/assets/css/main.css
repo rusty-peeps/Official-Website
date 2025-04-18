@@ -16390,6 +16390,77 @@ textarea:focus::placeholder {
     flex-wrap: nowrap;
   }
 }
+.slot-box {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #007BFF;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  margin: 5px;
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.btn-primary-cs {
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  width: 200px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+.btn-cancel {
+  padding: 10px;
+  background-color: #e86602;
+  color: white;
+  border: none;
+  width: 200px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+@media (max-width: 480px) {
+  .btn-cancel {
+    width: 100%;
+  }
+  .btn-primary-cs {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .popup {
+    padding: 15px;
+    max-width: 95%;
+    width: 95%;
+    max-width: 400px;
+    border-radius: 8px;
+  }
+  .slot-box {
+    width: 60px;
+    height: 40px;
+    font-size: 12px;
+  
+  }
+}
+
 
 .account-form-condition .condition_label {
   display: block;

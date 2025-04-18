@@ -9,7 +9,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import NewsLetter from "../components/newsletter/newsLetter";
 import coursesData from "../data/course_details.json";
 import { fetchSlotEvents } from "../api/get";
-import { createSlotOrder,bookSlotApi } from "../api/post";
+import { createSlotOrder, bookSlotApi } from "../api/post";
 import { toast } from "react-toastify";
 const localizer = momentLocalizer(moment);
 
@@ -135,7 +135,7 @@ const CourseDetails = () => {
     const orderData = await createOrder(course.priceInt);
     if (!orderData) return;
 
-    const { order_id} = orderData;
+    const { order_id } = orderData;
     const newEvent = {
       id: events.length + 1,
       title: `Booking by ${name}`,
@@ -234,156 +234,142 @@ const CourseDetails = () => {
                 </div>
               </div>
               <div className="col-xl-6 col-lg-6">
-                <div className="">
-                  <div className="account-main">
-                    <form className="account-form" onSubmit={handleSubmit}>
-                      <div className="account-form-item mb-20">
-                        <div className="account-form-label">
-                          <label>Name</label>
-                        </div>
-                        <div className="account-form-input">
-                          <input
-                            type="text"
-                            placeholder="Enter Your Name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                          />
-                        </div>
+                <div className="account-main">
+                  <form className="account-form" onSubmit={handleSubmit}>
+                    <div className="account-form-item mb-20">
+                      <div className="account-form-label">
+                        <label>Name</label>
                       </div>
-
-                      <div className="account-form-item mb-20">
-                        <div className="account-form-label">
-                          <label>Email</label>
-                        </div>
-                        <div className="account-form-input">
-                          <input
-                            type="email"
-                            placeholder="Enter Your Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="account-form-item mb-20">
-                        <div className="account-form-label">
-                          <label>Phone</label>
-                        </div>
-                        <div className="account-form-input">
-                          <input
-                            type="tel"
-                            placeholder="Enter Your Phone"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <Calendar
-                          localizer={localizer}
-                          events={events}
-                          selectable
-                          onSelectSlot={handleDateSelection}
-                          defaultView="month"
-                          views={["month"]}
-                          defaultDate={new Date()}
-                          style={{ height: 400 }}
-                          className="calendar-container"
-                          dayPropGetter={Util.calendarStyle}
+                      <div className="account-form-input">
+                        <input
+                          type="text"
+                          placeholder="Enter Your Name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
                         />
-                        {popupVisible && (
-                          <div style={Util.popupStyles}>
-                            <p>
-                              Select Time Slot for{" "}
-                              {moment(selectedDate).format("MMMM Do YYYY")}
-                            </p>
-                            <div style={Util.slotsContainerStyle}>
-                              {timeSlots.map((slot) => {
-                                const disabled = Util.isSlotDisabled(
-                                  slot,
-                                  selectedDate,
-                                  events
-                                );
-                                return (
-                                  <div
-                                    key={slot}
-                                    style={{
-                                      ...Util.slotBoxStyle,
-                                      backgroundColor: disabled
-                                        ? "#E0E0E0"
-                                        : selectedSlot === slot
-                                        ? "#007BFF"
-                                        : "#FFF",
-                                      color: disabled
-                                        ? "#A9A9A9"
-                                        : selectedSlot === slot
-                                        ? "#FFF"
-                                        : "#000",
-                                      cursor: disabled
-                                        ? "not-allowed"
-                                        : "pointer",
-                                      pointerEvents: disabled ? "none" : "auto",
-                                    }}
-                                    onClick={() =>
-                                      !disabled && setSelectedSlot(slot)
-                                    }>
-                                    {moment(slot, "HH:mm").format("h:mm A")}
-                                  </div>
-                                );
-                              })}
-                            </div>
-                            <div
-                              style={{ marginTop: "10px" }}
-                              className="text-center mt-2">
-                              <button
-                                style={{
-                                  marginRight: "10px",
-                                  padding: "10px",
-                                  background: "#007BFF",
-                                  color: "white",
-                                  border: "none",
-                                  width: "200px",
-                                  borderRadius: "5px",
-                                }}
-                                disabled={!selectedSlot}
-                                onClick={() => {
-                                  alert(
-                                    "Slot selected successfully! Please confirm booking."
-                                  );
-                                  toast.success("Slot selected successfully! Please confirm booking.");
-                                  setPopupVisible(false);
-                                }}>
-                                Book Slot
-                              </button>
-                              <button
-                                style={{
-                                  padding: "10px",
-                                  background: "#e86602",
-                                  color: "white",
-                                  border: "none",
-                                  width: "200px",
-                                  borderRadius: "5px",
-                                }}
-                                onClick={() => setPopupVisible(false)}>
-                                Cancel
-                              </button>
-                            </div>
+                      </div>
+                    </div>
+
+                    <div className="account-form-item mb-20">
+                      <div className="account-form-label">
+                        <label>Email</label>
+                      </div>
+                      <div className="account-form-input">
+                        <input
+                          type="email"
+                          placeholder="Enter Your Email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="account-form-item mb-20">
+                      <div className="account-form-label">
+                        <label>Phone</label>
+                      </div>
+                      <div className="account-form-input">
+                        <input
+                          type="tel"
+                          placeholder="Enter Your Phone"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <Calendar
+                        localizer={localizer}
+                        events={events}
+                        selectable
+                        onSelectSlot={handleDateSelection}
+                        defaultView="month"
+                        views={["month"]}
+                        defaultDate={new Date()}
+                        style={{ height: 400 }}
+                        className="calendar-container"
+                        dayPropGetter={Util.calendarStyle}
+                      />
+                      {popupVisible && (
+                        <div className="popup">
+                          <p>
+                            Select Time Slot for{" "}
+                            {moment(selectedDate).format("MMMM Do YYYY")}
+                          </p>
+                          <div style={Util.slotsContainerStyle}>
+                            {timeSlots.map((slot) => {
+                              const disabled = Util.isSlotDisabled(
+                                slot,
+                                selectedDate,
+                                events
+                              );
+                              return (
+                                <div
+                                  key={slot}
+                                  className="slot-box"                               
+                                  style={{
+                                    // ...Util.slotBoxStyle,
+                                    backgroundColor: disabled
+                                      ? "#E0E0E0"
+                                      : selectedSlot === slot
+                                      ? "#007BFF"
+                                      : "#FFF",
+                                    color: disabled
+                                      ? "#A9A9A9"
+                                      : selectedSlot === slot
+                                      ? "#FFF"
+                                      : "#000",
+                                    cursor: disabled
+                                      ? "not-allowed"
+                                      : "pointer",
+                                    pointerEvents: disabled ? "none" : "auto",
+                                  }}
+                                  onClick={() =>
+                                    !disabled && setSelectedSlot(slot)
+                                  }>
+                                  {moment(slot, "HH:mm").format("h:mm A")}
+                                </div>
+                              );
+                            })}
                           </div>
-                        )}
-                      </div>
-                      <br />
-                      <div className="account-form-button">
-                        <button
-                          type="submit"
-                          className="account-btn"
-                          onClick={(e) => {
-                            handleSubmit(e);
-                          }}>
-                          Confirm Booking
-                        </button>
-                      </div>
-                    </form>
-                  </div>
+                          <div
+                            style={{ marginTop: "10px" }}
+                            className="text-center mt-2">
+                            <button
+                              className="btn-primary-cs"
+                              disabled={!selectedSlot}
+                              onClick={() => {
+                                alert(
+                                  "Slot selected successfully! Please confirm booking."
+                                );
+                                toast.success(
+                                  "Slot selected successfully! Please confirm booking."
+                                );
+                                setPopupVisible(false);
+                              }}>
+                              Book Slot
+                            </button>
+                            <button
+                               className="btn-cancel"
+                              onClick={() => setPopupVisible(false)}>
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <br />
+                    <div className="account-form-button">
+                      <button
+                        type="submit"
+                        className="account-btn"
+                        onClick={(e) => {
+                          handleSubmit(e);
+                        }}>
+                        Confirm Booking
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

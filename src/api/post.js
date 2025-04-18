@@ -3,19 +3,33 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const subscribeToNewsletter = async (email) => {
-  console.log("Sending email:", email);
-  const response = await axios.post(`${BASE_URL}/newsletter`, { email });
-  return response.data;
+  try {
+    const response = await axios.post(`${BASE_URL}/newsletter`, { email });
+    return response.data;
+  } catch (error) {
+    console.error("Error subscribing to newsletter:", error);
+    throw error;
+  }
 };
 
 export const sendContactMessage = async (formData) => {
-  const response = await axios.post(`${BASE_URL}/other/contact`, formData);
-  return response.data;
+  try {
+    const response = await axios.post(`${BASE_URL}/other/contact`, formData);
+    return response.data;
+  } catch (error) {
+    console.error("Error sending contact message:", error);
+    throw error;
+  }
 };
 
 export const submitCareerTraining = async (formData) => {
-  const response = await axios.post(`${BASE_URL}/admissions`, formData);
-  return response.data;
+  try {
+    const response = await axios.post(`${BASE_URL}/admissions`, formData);
+    return response.data;
+  } catch (error) {
+    console.error("Error submitting career training form:", error);
+    throw error;
+  }
 };
 
 export const createSlotOrder = async (amount) => {
