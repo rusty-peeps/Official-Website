@@ -16215,7 +16215,7 @@ textarea:focus::placeholder {
 }
 @media (max-width: 767px) {
   .account-main {
-    padding: 65px 30px 70px;
+    padding: 1px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -20520,6 +20520,8 @@ textarea:focus::placeholder {
 
 .calendar-container {
   margin: 20px auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .rbc-off-range {
@@ -20527,11 +20529,6 @@ textarea:focus::placeholder {
   color: #a0a0a0;
   pointer-events: none;
   opacity: 0.6;
-}
-
-.calendar-container {
-  display: flex;
-  flex-direction: column;
 }
 
 .rbc-toolbar {

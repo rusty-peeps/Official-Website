@@ -186,7 +186,7 @@ const CourseDetails = () => {
               <div className="col-xl-6 col-lg-6">
                 <div className="course_details-wrap ">
                   <div className="course_details-tab-button">
-                    <ul className="nav nav-pills" id="pills-tab" role="tablist">
+                    {/* <ul className="nav nav-pills" id="pills-tab" role="tablist">
                       <li className="nav-item" role="presentation">
                         <button
                           className="nav-link active"
@@ -201,7 +201,7 @@ const CourseDetails = () => {
                           <span>Overview</span>
                         </button>
                       </li>
-                    </ul>
+                    </ul> */}
                   </div>
                   <div className="course_details-tab-content">
                     <div className="tab-content" id="pills-tabContent">
@@ -284,6 +284,7 @@ const CourseDetails = () => {
                         selectable
                         onSelectSlot={handleDateSelection}
                         defaultView="month"
+                        longPressThreshold={2}
                         views={["month"]}
                         defaultDate={new Date()}
                         style={{ height: 400 }}
