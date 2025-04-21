@@ -186,22 +186,6 @@ const CourseDetails = () => {
               <div className="col-xl-6 col-lg-6">
                 <div className="course_details-wrap ">
                   <div className="course_details-tab-button">
-                    {/* <ul className="nav nav-pills" id="pills-tab" role="tablist">
-                      <li className="nav-item" role="presentation">
-                        <button
-                          className="nav-link active"
-                          id="pills-home-tab"
-                          data-bs-toggle="pill"
-                          data-bs-target="#pills-home"
-                          type="button"
-                          role="tab"
-                          aria-controls="pills-home"
-                          aria-selected="true">
-                          <i className="fa-solid fa-bookmark"></i>
-                          <span>Overview</span>
-                        </button>
-                      </li>
-                    </ul> */}
                   </div>
                   <div className="course_details-tab-content">
                     <div className="tab-content" id="pills-tabContent">
