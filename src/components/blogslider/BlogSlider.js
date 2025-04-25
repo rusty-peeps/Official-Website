@@ -20,11 +20,11 @@ const BlogSlider = () => {
           </div>
           <div className="col-xl-4 col-lg-4 col-md-4">
             <div className="h8_blog-navigation mb-30">
-             
               <div className="h2_about-button">
                 <a
                   href="https://rustypeeps.blog/"
-                  className="theme-btn theme-btn-medium">
+                  className="theme-btn theme-btn-medium"
+                >
                   View All
                 </a>
               </div>
@@ -51,7 +51,8 @@ const BlogSlider = () => {
               1024: {
                 slidesPerView: 3,
               },
-            }}>
+            }}
+          >
             {blogs.map((blog) => (
               <SwiperSlide key={blog.id}>
                 <div className="h8_blog-item" style={{ height: "60%" }}>
@@ -68,7 +69,8 @@ const BlogSlider = () => {
                     <Link
                       to={blog.link}
                       className="h8_blog-item-content-btn"
-                      target="_blank">
+                      target="_blank"
+                    >
                       Read More <i className="fa-light fa-arrow-right"></i>
                     </Link>
                   </div>

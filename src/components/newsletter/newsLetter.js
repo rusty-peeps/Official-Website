@@ -20,7 +20,7 @@ function NewsLetter() {
 
     try {
       const response = await subscribeToNewsletter(email);
-      
+
       if (response.code === 201) {
         toast.error(response.message);
       } else {

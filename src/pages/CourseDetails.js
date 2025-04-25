@@ -99,7 +99,7 @@ const CourseDetails = () => {
     } catch (error) {
       console.error(
         "Error booking slot:",
-        error.response?.data || error.message
+        error.response?.data || error.message,
       );
       toast.error("Error booking slot. Please try again.");
       return null;
@@ -120,12 +120,12 @@ const CourseDetails = () => {
     }
 
     const startDateTime = new Date(
-      moment(selectedDate).format("YYYY-MM-DD") + "T" + selectedSlot
+      moment(selectedDate).format("YYYY-MM-DD") + "T" + selectedSlot,
     );
     const endDateTime = moment(startDateTime).add(30, "minutes").toDate();
 
     const isOverlapping = events.some(
-      (event) => startDateTime < event.end && endDateTime > event.start
+      (event) => startDateTime < event.end && endDateTime > event.start,
     );
 
     if (isOverlapping) {
@@ -185,8 +185,7 @@ const CourseDetails = () => {
             <div className="row">
               <div className="col-xl-6 col-lg-6">
                 <div className="course_details-wrap ">
-                  <div className="course_details-tab-button">
-                  </div>
+                  <div className="course_details-tab-button"></div>
                   <div className="course_details-tab-content">
                     <div className="tab-content" id="pills-tabContent">
                       <div
@@ -194,7 +193,8 @@ const CourseDetails = () => {
                         id="pills-home"
                         role="tabpanel"
                         aria-labelledby="pills-home-tab"
-                        tabindex="0">
+                        tabIndex="0"
+                      >
                         <div className="course_details-content">
                           <h4 className="course_details-content-title mb-15">
                             Courses Description
@@ -286,24 +286,24 @@ const CourseDetails = () => {
                               const disabled = Util.isSlotDisabled(
                                 slot,
                                 selectedDate,
-                                events
+                                events,
                               );
                               return (
                                 <div
                                   key={slot}
-                                  className="slot-box"                               
+                                  className="slot-box"
                                   style={{
                                     // ...Util.slotBoxStyle,
                                     backgroundColor: disabled
                                       ? "#E0E0E0"
                                       : selectedSlot === slot
-                                      ? "#007BFF"
-                                      : "#FFF",
+                                        ? "#007BFF"
+                                        : "#FFF",
                                     color: disabled
                                       ? "#A9A9A9"
                                       : selectedSlot === slot
-                                      ? "#FFF"
-                                      : "#000",
+                                        ? "#FFF"
+                                        : "#000",
                                     cursor: disabled
                                       ? "not-allowed"
                                       : "pointer",
@@ -311,7 +311,8 @@ const CourseDetails = () => {
                                   }}
                                   onClick={() =>
                                     !disabled && setSelectedSlot(slot)
-                                  }>
+                                  }
+                                >
                                   {moment(slot, "HH:mm").format("h:mm A")}
                                 </div>
                               );
@@ -319,24 +320,27 @@ const CourseDetails = () => {
                           </div>
                           <div
                             style={{ marginTop: "10px" }}
-                            className="text-center mt-2">
+                            className="text-center mt-2"
+                          >
                             <button
                               className="btn-primary-cs"
                               disabled={!selectedSlot}
                               onClick={() => {
                                 alert(
-                                  "Slot selected successfully! Please confirm booking."
+                                  "Slot selected successfully! Please confirm booking.",
                                 );
                                 toast.success(
-                                  "Slot selected successfully! Please confirm booking."
+                                  "Slot selected successfully! Please confirm booking.",
                                 );
                                 setPopupVisible(false);
-                              }}>
+                              }}
+                            >
                               Book Slot
                             </button>
                             <button
-                               className="btn-cancel"
-                              onClick={() => setPopupVisible(false)}>
+                              className="btn-cancel"
+                              onClick={() => setPopupVisible(false)}
+                            >
                               Cancel
                             </button>
                           </div>
@@ -350,7 +354,8 @@ const CourseDetails = () => {
                         className="account-btn"
                         onClick={(e) => {
                           handleSubmit(e);
-                        }}>
+                        }}
+                      >
                         Confirm Booking
                       </button>
                     </div>

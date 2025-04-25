@@ -51,7 +51,8 @@ const EventArea = () => {
                 1024: {
                   slidesPerView: 3,
                 },
-              }}>
+              }}
+            >
               {events.map((event, index) => (
                 <SwiperSlide key={index}>
                   <div className="event-item">
@@ -76,7 +77,8 @@ const EventArea = () => {
                       </h5>
                       <Link
                         to={event.link}
-                        className="t-theme-btn theme-btn event-btn">
+                        className="t-theme-btn theme-btn event-btn"
+                      >
                         Get Ticket
                       </Link>
                     </div>

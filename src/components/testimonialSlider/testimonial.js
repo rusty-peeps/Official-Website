@@ -1,5 +1,5 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
@@ -14,9 +14,12 @@ const TestimonialArea = () => {
           <div className="col-xl-6 col-lg-8 col-md-10">
             <div className="section-area mb-55 section-area-top text-center">
               <span className="section-subtitle">Student Reviews</span>
-              <h2 className="section-title mb-20">What Our Students Are Saying</h2>
+              <h2 className="section-title mb-20">
+                What Our Students Are Saying
+              </h2>
               <p className="section-text">
-                Through a combination of lectures, readings, discussions, students will gain a solid foundation in educational psychology.
+                Through a combination of lectures, readings, discussions,
+                students will gain a solid foundation in educational psychology.
               </p>
             </div>
           </div>
@@ -59,7 +62,8 @@ const TestimonialArea = () => {
                   <p>{testimonial.review}</p>
                 </div>
               </div>
-              <br /><br />
+              <br />
+              <br />
             </SwiperSlide>
           ))}
         </Swiper>

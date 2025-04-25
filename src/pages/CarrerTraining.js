@@ -16,7 +16,7 @@ function CarrerTraining() {
     additional_support: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -89,23 +89,23 @@ function CarrerTraining() {
     <div>
       {" "}
       <Navbar />
-      <section class="h6_admission-area pt-115 pb-120 fix">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-6 col-lg-6">
-              <div class="section-area-6 mb-35">
-                <h2 class="section-title mb-15">
+      <section className="h6_admission-area pt-115 pb-120 fix">
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-6 col-lg-6">
+              <div className="section-area-6 mb-35">
+                <h2 className="section-title mb-15">
                   Unlock Tailored Training Opportunities for Your Institution or
                   Organization!
                 </h2>
                 <p>
                   Take the first step toward knowledge and innovation. Complete
-                  the form today and let’s build the future together!
+                  the form today and lets build the futuretogether!
                 </p>
               </div>
             </div>
-            <div class="col-xl-6 col-lg-6">
-              <div class="section-area-6 mb-55">
+            <div className="col-xl-6 col-lg-6">
+              <div className="section-area-6 mb-55">
                 <div className="about-content-list">
                   <ul>
                     <li>
@@ -122,7 +122,7 @@ function CarrerTraining() {
                     </li>
                   </ul>
                 </div>
-                <p class="section-text">
+                <p className="section-text">
                   Empower your team or students with skills in Rust, blockchain,
                   or backend development! Fill out our quick inquiry form to
                   learn more.
@@ -130,12 +130,12 @@ function CarrerTraining() {
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="h6_admission-img">
+          <div className="row">
+            <div className="col-12">
+              <div className="h6_admission-img">
                 <img src="assets/img/admission/6/bg.jpg" alt="" />
-                <div class="h6_admission-form">
-                  <h5 class="h6_admission-form-title">Admissions</h5>
+                <div className="h6_admission-form">
+                  <h5 className="h6_admission-form-title">Admissions</h5>
                   <form action="#" onSubmit={handleSubmit}>
                     <div className="row g-15">
                       <div className="col-xl-6 col-sm-6">
@@ -198,7 +198,8 @@ function CarrerTraining() {
                           <select
                             name="selected_course"
                             value={formData.selected_course}
-                            onChange={handleChange}>
+                            onChange={handleChange}
+                          >
                             <option value="">Select a course</option>
                             <option value="Beginning WIth Rust">
                               Beginning WIth Rust
@@ -244,14 +245,16 @@ function CarrerTraining() {
                             name="additional_support"
                             placeholder="Do you need any additional support?"
                             value={formData.additional_support}
-                            onChange={handleChange}></textarea>
+                            onChange={handleChange}
+                          ></textarea>
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="h6_admission-form-btn">
                           <button
                             type="submit"
-                            className="theme-btn h6_admission-btn theme-btn-full theme-btn-6">
+                            className="theme-btn h6_admission-btn theme-btn-full theme-btn-6"
+                          >
                             Book<i className="fa-light fa-arrow-right"></i>
                           </button>
                         </div>
@@ -263,9 +266,9 @@ function CarrerTraining() {
             </div>
           </div>
         </div>
-        <div class="apply-text-wrap mt-30">
-          <div class="apply-text-ticker" id="apply-text-ticker">
-            <h1 class="h6_admission-bottom-text">ENQUIRE !</h1>
+        <div className="apply-text-wrap mt-30">
+          <div className="apply-text-ticker" id="apply-text-ticker">
+            <h1 className="h6_admission-bottom-text">ENQUIRE !</h1>
             {/* enquire ! */}
           </div>
         </div>

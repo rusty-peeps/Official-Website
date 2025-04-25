@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 const AboutUsTwo = () => {
   return (
     <section className="about-area pb-90">

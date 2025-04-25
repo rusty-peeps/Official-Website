@@ -7,7 +7,8 @@ const Banner = () => {
       <section className="h10_banner-area">
         <div
           className="h10_single-banner bg-default"
-          data-background="assets/img/banner/10/bg.jpg">
+          data-background="assets/img/banner/10/bg.jpg"
+        >
           <img
             src="assets/img/banner/10/shape-1.png"
             alt="Not Found"
@@ -47,13 +48,15 @@ const Banner = () => {
                           .getElementById("tailored")
                           ?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="theme-btn theme-btn-10 theme-btn-10-white">
+                      className="theme-btn theme-btn-10 theme-btn-10-white"
+                    >
                       Tailored Sessions
                       <i className="fa-light fa-arrow-right"></i>
                     </a>
                     <Link
                       to="/carrertraining"
-                      className="theme-btn theme-btn-10 theme-btn-10-transparent">
+                      className="theme-btn theme-btn-10 theme-btn-10-transparent"
+                    >
                       Career Training
                       <i className="fa-light fa-arrow-right"></i>
                     </Link>

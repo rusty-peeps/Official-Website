@@ -1,7 +1,7 @@
 import React from "react";
 import CoursesList from "./CoursesList";
 
-const TabPane = ({ id, label, isActive,courses }) => {
+const TabPane = ({ id, isActive, courses }) => {
   return (
     <>
       <div
@@ -9,7 +9,8 @@ const TabPane = ({ id, label, isActive,courses }) => {
         id={id}
         role="tabpanel"
         aria-labelledby={`${id}-tab`}
-        tabIndex="0">
+        tabIndex="0"
+      >
         <CoursesList courses={courses} />
       </div>
     </>

@@ -24,22 +24,34 @@ const Footer = () => {
                   <ul>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-twitter"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-twitter"
+                        ></i>
                       </Link>
                     </li>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-facebook-f"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-facebook-f"
+                        ></i>
                       </Link>
                     </li>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-linkedin-in"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-linkedin-in"
+                        ></i>
                       </Link>
                     </li>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-youtube"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-youtube"
+                        ></i>
                       </Link>
                     </li>
                   </ul>
@@ -72,19 +84,22 @@ const Footer = () => {
                   <p style={{ color: "rgba(255, 255, 255, 0.6)" }}>
                     <i
                       className="fa-thin fa-location-dot"
-                      style={{ color: "#fff" }}></i>{" "}
+                      style={{ color: "#fff" }}
+                    ></i>{" "}
                     Bhubaneswar, Odisha, India
                   </p>
                   <p style={{ color: "rgba(255, 255, 255, 0.6)" }}>
                     <i
                       className="fa-thin fa-mobile-notch"
-                      style={{ color: "#fff" }}></i>{" "}
+                      style={{ color: "#fff" }}
+                    ></i>{" "}
                     <a href="tel:+916370151545"> +91 6370 151 545</a>
                   </p>
                   <p style={{ color: "rgba(255, 255, 255, 0.6)" }}>
                     <i
                       className="fa-thin fa-envelope"
-                      style={{ color: "#fff" }}></i>{" "}
+                      style={{ color: "#fff" }}
+                    ></i>{" "}
                     <a href="mailto:info@rustypeeps.school">
                       {" "}
                       info@rustypeeps.school
@@ -95,22 +110,34 @@ const Footer = () => {
                   <ul>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-twitter"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-twitter"
+                        ></i>
                       </Link>
                     </li>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-facebook-f"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-facebook-f"
+                        ></i>
                       </Link>
                     </li>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-linkedin-in"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-linkedin-in"
+                        ></i>
                       </Link>
                     </li>
                     <li>
                       <Link to="#">
-                        <i style={{ color: "#fff" }} className="fa-brands fa-youtube"></i>
+                        <i
+                          style={{ color: "#fff" }}
+                          className="fa-brands fa-youtube"
+                        ></i>
                       </Link>
                     </li>
                   </ul>

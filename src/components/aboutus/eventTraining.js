@@ -16,7 +16,7 @@ const EventTraining = () => {
                 </h2>
                 <p className="section-text">
                   Take the first step toward knowledge and innovation. Complete
-                  the form today and let’s build the future together!
+                  the form today and lets build the futuretogether!
                 </p>
               </div>
               <div className="about-content-list">
@@ -38,7 +38,8 @@ const EventTraining = () => {
               <div className="about-content-button">
                 <Link
                   to="/carrertraining"
-                  className="theme-btn about-btn theme-btn-medium">
+                  className="theme-btn about-btn theme-btn-medium"
+                >
                   Book Now
                 </Link>
               </div>

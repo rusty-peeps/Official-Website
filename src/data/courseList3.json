@@ -30,7 +30,8 @@
       "Preventing null pointer dereferences",
       "Safe concurrency with threads"
     ]
-  }, {
+  },
+  {
     "id": "00002",
     "image": "assets/img/course/traits.jpg",
     "icon": "assets/img/course/1/v1.png",

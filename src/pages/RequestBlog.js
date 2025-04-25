@@ -44,7 +44,7 @@ function RequestBlog() {
     try {
       const response = await axios.post(
         "https://api.example.com/submit-form", // Replace with your API endpoint
-        formPayload
+        formPayload,
       );
       console.log("Form submitted successfully:", response);
     } catch (error) {
@@ -118,7 +118,7 @@ function RequestBlog() {
                         </span>
                         <span className="label-ss">
                           *Drag and drop or click to select your markdown file.
-                          Make sure it's a valid .md format to ensure seamless
+                          Make sure it is a valid .md format to ensure seamless
                           processing.
                         </span>
                       </div>
@@ -128,7 +128,8 @@ function RequestBlog() {
                         <div className="contact-form-btn">
                           <button
                             type="submit"
-                            className="theme-btn contact-btn">
+                            className="theme-btn contact-btn"
+                          >
                             Submit
                           </button>
                         </div>

@@ -1,12 +1,9 @@
 import React from "react";
 import CounterArea from "../components/counter/CounterArea";
-import EventArea from "../components/eventarea/EventArea";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/nav/Navbar";
 import TestimonialArea from "../components/testimonialSlider/testimonial";
 import EventTraining from "../components/aboutus/eventTraining";
-import TopCourse from "../components/topcourse/topcourse";
-import BrandSlider from "../components/brandslider/BrandSlider";
 import BlogSlider from "../components/blogslider/BlogSlider";
 import NewsLetter from "../components/newsletter/newsLetter";
 import Banner from "../components/banner/banner";
@@ -51,7 +48,8 @@ const Home = () => {
                           type="button"
                           role="tab"
                           aria-controls="pills-home"
-                          aria-selected="true">
+                          aria-selected="true"
+                        >
                           See All ✅
                         </button>
                       </li>
@@ -64,7 +62,8 @@ const Home = () => {
                           type="button"
                           role="tab"
                           aria-controls="pills-profile"
-                          aria-selected="false">
+                          aria-selected="false"
+                        >
                           Most Booked 🔥
                         </button>
                       </li>
@@ -77,7 +76,8 @@ const Home = () => {
                           type="button"
                           role="tab"
                           aria-controls="pills-contact"
-                          aria-selected="false">
+                          aria-selected="false"
+                        >
                           Beginner Friendly 🤗
                         </button>
                       </li>
@@ -90,7 +90,8 @@ const Home = () => {
                           type="button"
                           role="tab"
                           aria-controls="pills-four"
-                          aria-selected="false">
+                          aria-selected="false"
+                        >
                           Intermediate 🥸
                         </button>
                       </li>
@@ -103,7 +104,8 @@ const Home = () => {
                           type="button"
                           role="tab"
                           aria-controls="pills-five"
-                          aria-selected="false">
+                          aria-selected="false"
+                        >
                           Complicated ☠️
                         </button>
                       </li>

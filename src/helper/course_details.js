@@ -25,12 +25,12 @@ const isSlotDisabled = (slot, selectedDate, events) => {
   const selectedDay = moment(selectedDate).startOf("day");
   const today = moment().startOf("day");
   const startDateTime = new Date(
-    moment(selectedDate).format("YYYY-MM-DD") + "T" + slot
+    moment(selectedDate).format("YYYY-MM-DD") + "T" + slot,
   );
   const endDateTime = moment(startDateTime).add(30, "minutes").toDate();
   const isPastTime = selectedDay.isSame(today, "day") && startDateTime < now;
   const isBooked = events.some(
-    (event) => startDateTime < event.end && endDateTime > event.start
+    (event) => startDateTime < event.end && endDateTime > event.start,
   );
   return isPastTime || isBooked;
 };
@@ -71,5 +71,5 @@ export default {
   generateTimeSlots,
   isSlotDisabled,
   formatEvents,
-  calendarStyle
+  calendarStyle,
 };

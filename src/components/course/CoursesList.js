@@ -1,10 +1,9 @@
-import React from 'react';
-import CourseItem from './CourseItem';
+import React from "react";
+import CourseItem from "./CourseItem";
 
-
-const CoursesList = ({courses}) => {
+const CoursesList = ({ courses }) => {
   return (
-    <div className="row" >
+    <div className="row">
       {courses.map((course, index) => (
         <CourseItem key={index} course={course} />
       ))}

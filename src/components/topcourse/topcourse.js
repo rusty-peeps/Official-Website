@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
-import blogPosts from "../../data/topCourse.json"; 
+import blogPosts from "../../data/topCourse.json";
 
 const TopCourse = () => {
   return (
@@ -20,7 +20,10 @@ const TopCourse = () => {
           </div>
           <div className="col-md-3">
             <div className="h5_category-section-button mb-40 text-md-end">
-              <Link to="/blog" className="theme-btn theme-btn-medium theme-btn-5">
+              <Link
+                to="/blog"
+                className="theme-btn theme-btn-medium theme-btn-5"
+              >
                 View All Blog
               </Link>
             </div>

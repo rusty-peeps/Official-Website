@@ -9,7 +9,7 @@ import Contact from "./pages/Contact.js";
 import RequestBlog from "./pages/RequestBlog.js";
 import CarrerTraining from "./pages/CarrerTraining.js";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 const componentsMap = {
   CourseDetails: CourseDetails,
   Home: Home,
@@ -22,7 +22,7 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          {routes.map((route, index) => {
+          {routes.map((route) => {
             const Component = componentsMap[route.element] || (() => null);
             return (
               <Route

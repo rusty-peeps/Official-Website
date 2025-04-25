@@ -47,7 +47,8 @@ const Navbar = () => {
           onClick={(e) => {
             e.preventDefault();
             handleNavigation(item.url || "/", item.href);
-          }}>
+          }}
+        >
           {item.label}
         </Link>
       );
@@ -82,14 +83,16 @@ const Navbar = () => {
                 <div className="header-btn d-none d-sm-block">
                   <Link
                     to="#newsletter"
-                    className="header-btn theme-btn theme-btn-medium">
+                    className="header-btn theme-btn theme-btn-medium"
+                  >
                     Subscribe to Newsletter
                   </Link>
                 </div>
                 <div className="header-menu-bar d-xl-none ml-10">
                   <span
                     className="header-menu-bar-icon side-toggle"
-                    onClick={toggleSidebar}>
+                    onClick={toggleSidebar}
+                  >
                     <i className="fa-light fa-bars"></i>
                   </span>
                 </div>
@@ -122,28 +125,32 @@ const Navbar = () => {
                 <Link to="#">
                   <i
                     style={{ color: "white" }}
-                    className="fa-brands fa-twitter"></i>
+                    className="fa-brands fa-twitter"
+                  ></i>
                 </Link>
               </li>
               <li>
                 <Link to="#">
                   <i
                     style={{ color: "white" }}
-                    className="fa-brands fa-facebook-f"></i>
+                    className="fa-brands fa-facebook-f"
+                  ></i>
                 </Link>
               </li>
               <li>
                 <Link to="#">
                   <i
                     style={{ color: "white" }}
-                    className="fa-brands fa-linkedin-in"></i>
+                    className="fa-brands fa-linkedin-in"
+                  ></i>
                 </Link>
               </li>
               <li>
                 <Link to="#">
                   <i
                     style={{ color: "white" }}
-                    className="fa-brands fa-youtube"></i>
+                    className="fa-brands fa-youtube"
+                  ></i>
                 </Link>
               </li>
             </ul>
@@ -155,7 +162,8 @@ const Navbar = () => {
       </div>
       <div
         className={`sidebar-overlay ${isSidebarOpen ? "active" : ""}`}
-        onClick={toggleSidebar}></div>
+        onClick={toggleSidebar}
+      ></div>
     </header>
   );
 };
